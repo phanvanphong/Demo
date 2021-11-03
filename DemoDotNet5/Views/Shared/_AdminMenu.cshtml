@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService authorizationService
+@{
+    // Kiểm tra User có thõa mãn Policy Administrator hay không tức là User có quyền Administrator hay không 
+    var resultAuthorize = await authorizationService.AuthorizeAsync(User, "Administrator");
+}
+
+@if (resultAuthorize.Succeeded)
+{
+    <div class="dropdown">
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+            Manage
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" asp-page="/Role/Index" asp-area="Identity">Roles</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" asp-page="/User/Index" asp-area="Identity">Users</a>
+        </div>
+    </div>
+
+}
+
+
+

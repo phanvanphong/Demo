@@ -1,0 +1,12 @@
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\bin\Release\net5.0\OA.Data.deps.json
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\bin\Release\net5.0\OA.Data.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\bin\Release\net5.0\ref\OA.Data.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\bin\Release\net5.0\OA.Data.pdb
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\obj\Release\net5.0\OA.Data.csproj.AssemblyReference.cache
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\obj\Release\net5.0\OA.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\obj\Release\net5.0\OA.Data.AssemblyInfoInputs.cache
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\obj\Release\net5.0\OA.Data.AssemblyInfo.cs
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\obj\Release\net5.0\OA.Data.csproj.CoreCompileInputs.cache
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\obj\Release\net5.0\OA.Data.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\obj\Release\net5.0\ref\OA.Data.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Data\obj\Release\net5.0\OA.Data.pdb

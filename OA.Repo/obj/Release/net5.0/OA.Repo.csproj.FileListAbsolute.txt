@@ -1,0 +1,17 @@
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\bin\Release\net5.0\OA.Repo.deps.json
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\bin\Release\net5.0\OA.Repo.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\bin\Release\net5.0\ref\OA.Repo.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\bin\Release\net5.0\OA.Repo.pdb
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\bin\Release\net5.0\OA.Data.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\bin\Release\net5.0\OA.Interface.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\bin\Release\net5.0\OA.Data.pdb
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\bin\Release\net5.0\OA.Interface.pdb
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\OA.Repo.csproj.AssemblyReference.cache
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\OA.Repo.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\OA.Repo.AssemblyInfoInputs.cache
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\OA.Repo.AssemblyInfo.cs
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\OA.Repo.csproj.CoreCompileInputs.cache
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\OA.Repo.csproj.CopyComplete
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\OA.Repo.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\ref\OA.Repo.dll
+D:\ASP.NETCORE5\AspNetMvc\OA.Repo\obj\Release\net5.0\OA.Repo.pdb

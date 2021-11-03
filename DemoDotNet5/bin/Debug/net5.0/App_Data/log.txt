@@ -1,0 +1,202 @@
+INFO 2021-10-27 10:10:19 – âsas
+INFO 2021-10-27 10:10:20 – Hello logging
+INFO 2021-10-27 10:12:06 – âsas
+INFO 2021-10-27 10:13:38 – âsas
+INFO 2021-10-27 10:13:39 – Hello logging
+INFO 2021-10-27 10:16:26 – Hello logging
+INFO 2021-10-27 10:16:27 – Hello logging
+INFO 2021-10-27 10:16:29 – Hello logging
+INFO 2021-10-27 10:16:30 – Hello logging
+INFO 2021-10-27 10:17:11 – Hello logging
+INFO 2021-10-27 10:17:22 – Hello logging
+INFO 2021-10-27 10:26:03 – Hello logging
+ERROR2021-10-27 10:26:05 – Không thể chia {0} cho 0
+ERROR2021-10-27 10:26:46 – Không thể chia {1} cho 0
+INFO 2021-10-27 10:26:49 – Hello logging
+ERROR2021-10-27 10:26:50 – Không thể chia {1} cho 0
+INFO 2021-10-27 10:29:00 – Hello logging
+ERROR2021-10-27 10:29:02 – Không thể chia {a} cho 0
+INFO 2021-10-27 10:30:05 – Hello logging
+INFO 2021-10-27 10:32:59 – Hello logging
+ERROR2021-10-27 10:33:01 – System.DivideByZeroException: Attempted to divide by zero.
+   at DemoDotNet5.Controllers.CategoryController.Index(String search, Int32 currentPage, Int32 pageSize) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 39
+ERROR2021-10-27 10:33:38 – System.DivideByZeroException: Attempted to divide by zero.
+   at DemoDotNet5.Controllers.CategoryController.Index(String search, Int32 currentPage, Int32 pageSize) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 39
+ERROR2021-10-27 10:33:42 – System.DivideByZeroException: Attempted to divide by zero.
+   at DemoDotNet5.Controllers.CategoryController.Index(String search, Int32 currentPage, Int32 pageSize) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 39
+ERROR2021-10-27 10:43:07 – System.DivideByZeroException: Attempted to divide by zero.
+   at DemoDotNet5.Controllers.CategoryController.Index(String search, Int32 currentPage, Int32 pageSize) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 39
+INFO 2021-10-27 10:43:25 – Hello logging
+DEBUG2021-10-27 10:43:25 – System.DivideByZeroException: Attempted to divide by zero.
+   at DemoDotNet5.Controllers.CategoryController.Index(String search, Int32 currentPage, Int32 pageSize) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 39
+DEBUG2021-10-27 10:43:33 – System.DivideByZeroException: Attempted to divide by zero.
+   at DemoDotNet5.Controllers.CategoryController.Index(String search, Int32 currentPage, Int32 pageSize) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 39
+INFO 2021-10-27 10:46:03 – Hello logging
+DEBUG2021-10-27 10:46:05 – System.DivideByZeroException: Attempted to divide by zero.
+   at DemoDotNet5.Controllers.CategoryController.Index(String search, Int32 currentPage, Int32 pageSize) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 39
+INFO 2021-10-27 10:58:06 – Hello logging
+INFO 2021-10-27 11:01:10 – Hello logging
+ERROR2021-10-27 11:01:29 – System.ArgumentNullException: Value cannot be null. (Parameter 'entity')
+   at OA.Repo.Repository`1.Remove(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 63
+   at OA.Service.CategoryService.Delete(Int64 id) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 24
+   at DemoDotNet5.Controllers.CategoryController.Delete(Int32 id) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 133
+ERROR2021-10-27 11:01:34 – System.ArgumentNullException: Value cannot be null. (Parameter 'entity')
+   at OA.Repo.Repository`1.Remove(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 63
+   at OA.Service.CategoryService.Delete(Int64 id) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 24
+   at DemoDotNet5.Controllers.CategoryController.Delete(Int32 id) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 133
+INFO 2021-10-27 11:07:43 – Hello logging
+INFO 2021-10-27 11:26:19 – Hello logging
+INFO 2021-10-27 11:28:47 – Hello logging
+INFO 2021-10-27 11:32:54 – Hello logging
+INFO 2021-10-27 11:33:06 – Hello logging
+INFO 2021-10-27 11:33:16 – Hello logging
+INFO 2021-10-27 11:33:51 – Hello logging
+INFO 2021-10-27 11:38:00 – Hello logging
+INFO 2021-10-27 11:38:07 – Hello logging
+ERROR2021-10-27 11:38:19 – System.ArgumentNullException: Value cannot be null. (Parameter 'entity')
+   at OA.Repo.Repository`1.Remove(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 63
+   at OA.Service.CategoryService.Delete(Int64 id) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 24
+   at DemoDotNet5.Controllers.CategoryController.Delete(Int32 id) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 130
+ERROR2021-10-27 11:38:24 – System.ArgumentNullException: Value cannot be null. (Parameter 'entity')
+   at OA.Repo.Repository`1.Remove(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 63
+   at OA.Service.CategoryService.Delete(Int64 id) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 24
+   at DemoDotNet5.Controllers.CategoryController.Delete(Int32 id) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 130
+INFO 2021-10-27 11:41:23 – Hello logging
+INFO 2021-10-27 11:45:51 – Hello logging
+ERROR2021-10-27 11:46:08 – Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Description', table 'Shop.dbo.Categories'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:aa355a1f-c7e6-4bb7-85fb-f435d11b80fc
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at OA.Repo.Repository`1.Insert(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 56
+   at OA.Service.CategoryService.Insert(String name, String description) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 46
+   at DemoDotNet5.Controllers.CategoryController.Create(CategoryViewModel obj) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 105
+ERROR2021-10-27 11:47:52 – Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Description', table 'Shop.dbo.Categories'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:adddd9fd-331a-432b-990e-72ddec122449
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at OA.Repo.Repository`1.Insert(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 56
+   at OA.Service.CategoryService.Insert(String name, String description) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 46
+   at DemoDotNet5.Controllers.CategoryController.Create(CategoryViewModel obj) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 105
+INFO 2021-10-27 11:49:23 – Hello logging
+ERROR2021-10-27 11:49:29 – Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Description', table 'Shop.dbo.Categories'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:01ca9229-744c-43f4-9e8f-e6e78c0a800a
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at OA.Repo.Repository`1.Insert(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 56
+   at OA.Service.CategoryService.Insert(String name, String description) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 46
+   at DemoDotNet5.Controllers.CategoryController.Create(CategoryViewModel obj) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 105
+ERROR2021-10-27 02:20:51 – System.ArgumentNullException: Value cannot be null. (Parameter 'entity')
+   at OA.Repo.Repository`1.Remove(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 63
+   at OA.Service.CategoryService.Delete(Int64 id) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 24
+   at DemoDotNet5.Controllers.CategoryController.Delete(Int32 id) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 134
+ERROR2021-10-27 02:21:46 – Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Description', table 'Shop.dbo.Categories'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+ClientConnectionId:0c52cc97-3491-4a7f-b824-f26fc306afdf
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(DbContext _, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at OA.Repo.Repository`1.Insert(T entity) in D:\ASP.NETCORE5\AspNetMvc\OA.Repo\Repository.cs:line 56
+   at OA.Service.CategoryService.Insert(String name, String description) in D:\ASP.NETCORE5\AspNetMvc\OA.Service\CategoryService.cs:line 46
+   at DemoDotNet5.Controllers.CategoryController.Create(CategoryViewModel obj) in D:\ASP.NETCORE5\AspNetMvc\DemoDotNet5\Controllers\CategoryController.cs:line 105

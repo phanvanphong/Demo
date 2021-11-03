@@ -1,0 +1,19 @@
+﻿[
+  // Đối với Single File
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    "inputFiles": [
+      "wwwroot/css/site.css"
+    ]
+  }
+
+  // Trong trường hợp muốn megre thành multiple file
+  //{
+  //  "outputFileName": "wwwroot/css/site.min.css",
+  //  "inputFiles": [
+  //    "wwwroot/css/site.css",
+  //    "wwwroot/css/site1.css",
+  //    "wwwroot/css/site2.css
+  //  ]
+  //}
+]
