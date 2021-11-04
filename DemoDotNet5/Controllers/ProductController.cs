@@ -23,24 +23,24 @@ namespace DemoDotNet5.Controllers
    [Route("Product/[action]/{id?}")]
     public class ProductController : Controller
     {
-        private ICategoryService categoryService;
-        private IProductService productService;
+        private ICategoryService _categoryService;
+        private IProductService _productService;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _hostEnvironment;
 
         public ProductController(IProductService productService ,IWebHostEnvironment hostEnvironment,IMapper mapper,ICategoryService categoryService)
         {
-            this.productService = productService;
+            _productService = productService;
             _mapper = mapper;
             _hostEnvironment = hostEnvironment;
-            this.categoryService = categoryService;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index(string search, int currentPage, int pageSize)
         {
-            var data = productService.GetProducts(search, currentPage, pageSize);
+            var data = _productService.GetProducts(search, currentPage, pageSize);
             var products = data.Items;
-            ViewBag.totalItems = productService.Count();
+            ViewBag.totalItems = _productService.Count();
             ViewBag.totalPages = data.TotalPages;
             ViewBag.currentPage = data.CurrentPage;
             ViewBag.search = search;
@@ -52,7 +52,7 @@ namespace DemoDotNet5.Controllers
 
         public IActionResult Create()
         {
-            var categories = categoryService.GetList();
+            var categories = _categoryService.GetList();
             var categoryViewModel = _mapper.Map<List<CategoryViewModel>>(categories);
             ViewBag.cats = categoryViewModel;
             return View();
@@ -77,7 +77,7 @@ namespace DemoDotNet5.Controllers
                 }
 
                 var Product = new Product(obj.Name, obj.Price, obj.CategoryId, fileName);
-                productService.Insert(Product);
+                _productService.Insert(Product);
                 return RedirectToAction("Index");
             }
             return View();
@@ -86,11 +86,11 @@ namespace DemoDotNet5.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var categories = categoryService.GetList();
+            var categories = _categoryService.GetList();
             var categoryViewModel = _mapper.Map<List<CategoryViewModel>>(categories);
             ViewBag.cats = categoryViewModel;
 
-            var product = productService.GetId(id);
+            var product = _productService.GetId(id);
             var productViewModel = _mapper.Map<ProductViewModel>(product);
             return View(productViewModel);
         }
@@ -99,11 +99,11 @@ namespace DemoDotNet5.Controllers
         [HttpPost]
         public IActionResult EditPost(ProductViewModel obj,int id)
         {
-            var categories = categoryService.GetList();
+            var categories = _categoryService.GetList();
             var categoryViewModel = _mapper.Map<List<CategoryViewModel>>(categories);
             ViewBag.categories = categoryViewModel;
 
-            var product = productService.GetId(id);
+            var product = _productService.GetId(id);
             if (ModelState.IsValid)
             {
                 // Lấy tên hình ảnh
@@ -126,7 +126,7 @@ namespace DemoDotNet5.Controllers
                 product.Name = obj.Name;
                 product.Price = obj.Price;
                 product.CategoryId = obj.CategoryId;
-                productService.Update(product);
+                _productService.Update(product);
 
                 return RedirectToAction("Index");
             }
@@ -136,7 +136,7 @@ namespace DemoDotNet5.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            productService.Delete(id);
+            _productService.Delete(id);
             return RedirectToAction("Index");
         }
     }

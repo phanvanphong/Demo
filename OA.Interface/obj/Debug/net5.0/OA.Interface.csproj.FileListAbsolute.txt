@@ -42,3 +42,17 @@ D:\ASPNET\DemoDotNet5\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.CoreComp
 D:\ASPNET\DemoDotNet5\OA.Interface\obj\Debug\net5.0\OA.Interface.dll
 D:\ASPNET\DemoDotNet5\OA.Interface\obj\Debug\net5.0\ref\OA.Interface.dll
 D:\ASPNET\DemoDotNet5\OA.Interface\obj\Debug\net5.0\OA.Interface.pdb
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\bin\Debug\net5.0\OA.Interface.deps.json
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\bin\Debug\net5.0\OA.Interface.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\bin\Debug\net5.0\ref\OA.Interface.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\bin\Debug\net5.0\OA.Interface.pdb
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\bin\Debug\net5.0\OA.Data.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\bin\Debug\net5.0\OA.Data.pdb
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.AssemblyReference.cache
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.AssemblyInfoInputs.cache
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.AssemblyInfo.cs
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.CoreCompileInputs.cache
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\ref\OA.Interface.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.pdb

@@ -10,16 +10,16 @@ namespace OA.Service
 {
     public class ProductService : IProductService
     {
-        private IRepository<Product> productRepository;
+        private IRepository<Product> _productRepository;
 
         public ProductService(IRepository<Product> productRepository)
         {
-            this.productRepository = productRepository;
+            _productRepository = productRepository;
         }
         public void Delete(int id)
         {
-            Product product = productRepository.Get(id);
-            productRepository.Delete(product);
+            Product product = _productRepository.Get(id);
+            _productRepository.Delete(product);
 
             //productRepository.Remove(product);
             //productRepository.SaveChanges();
@@ -27,12 +27,12 @@ namespace OA.Service
 
         public Product GetId(int id)
         {
-            return productRepository.Get(id);
+            return _productRepository.Get(id);
         }
 
         public int Count()
         {
-            return productRepository.GetAll().Count();
+            return _productRepository.GetAll().Count();
         }
 
         //public IQueryable<Product> GetList()
@@ -42,18 +42,18 @@ namespace OA.Service
 
         public void Insert(Product product)
         {
-            productRepository.Insert(product);
+            _productRepository.Insert(product);
         }
 
         public void Update(Product product)
         {
-            productRepository.Update(product);
+            _productRepository.Update(product);
         }
 
-        public Pager<Product> GetProducts(string search, int currentPage, int pageSize)
+        public async Task<Pager<Product>> GetProducts(string search, int currentPage, int pageSize)
         {
             if (search == null) search = "";
-            var result = productRepository.Paging(p => p.Name.Contains(search), currentPage, pageSize, c => c.Category);
+            var result = await _productRepository.Paging(p => p.Name.Contains(search), currentPage, pageSize, c => c.Category);
             return result;
         }
     }

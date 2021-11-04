@@ -3,12 +3,6 @@
 @using OA.Data
 @using DemoDotNet5.Data
 
-@inject UserManager<ApplicationUser> UserManager
-@inject EShopDbContext _db
-
-@{ 
-    var UserProfileId = _db.Users.Find(UserManager.GetUserId(User)).UserProfileId;
-}
 
 <div class="container">
     <h2>Insert Customer</h2>
@@ -40,7 +34,7 @@
             <span asp-validation-for="Address" class="text-danger"></span>
         </div>
 
-        <input type="hidden" name="UserProfileId" value="@UserProfileId" />
+        <input type="hidden" name="UserProfileId" value="@ViewBag.userProfileId" />
         <input type="hidden" name="CreatedAt" value="@DateTime.Now.ToString("dd/MM/yyyy")" />
 
         <button type="submit" class="btn btn-primary">Insert</button>

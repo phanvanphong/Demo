@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASPNET\\DemoDotNet5\\OA.Interface\\OA.Interface.csproj": {}
+    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj": {}
   },
   "projects": {
-    "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj": {
+    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj",
+        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
         "projectName": "OA.Data",
-        "projectPath": "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj",
+        "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPNET\\DemoDotNet5\\OA.Data\\obj\\",
+        "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -68,14 +68,14 @@
         }
       }
     },
-    "D:\\ASPNET\\DemoDotNet5\\OA.Interface\\OA.Interface.csproj": {
+    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5\\OA.Interface\\OA.Interface.csproj",
+        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj",
         "projectName": "OA.Interface",
-        "projectPath": "D:\\ASPNET\\DemoDotNet5\\OA.Interface\\OA.Interface.csproj",
+        "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPNET\\DemoDotNet5\\OA.Interface\\obj\\",
+        "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,8 +92,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj": {
-                "projectPath": "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj"
+              "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj": {
+                "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj"
               }
             }
           }

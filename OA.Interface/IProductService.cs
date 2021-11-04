@@ -15,6 +15,6 @@ namespace OA.Service
         public void Insert(Product product);
         public void Update(Product product);
         public void Delete(int id);
-        public Pager<Product> GetProducts(string search, int currentPage, int pageSize);
+        public Task<Pager<Product>> GetProducts(string search, int currentPage, int pageSize);
     }
 }

@@ -11,53 +11,52 @@ namespace OA.Service
 {
     public class CategoryService : ICategoryService
     {
-        private IRepository<Category> categoryRepository;
+        private IRepository<Category> _categoryRepository;
         public CategoryService(IRepository<Category> categoryRepository)
         {
-            this.categoryRepository = categoryRepository;
+            _categoryRepository = categoryRepository;
         }
         public void Delete(long id)
         {
-            Category category = categoryRepository.Get(id);
-            categoryRepository.Delete(category);
+            Category category = _categoryRepository.Get(id);
+            _categoryRepository.Delete(category);
             //categoryRepository.Remove(category);
             //categoryRepository.SaveChanges();
         }
 
         public int Count()
         {
-            return categoryRepository.GetAll().Count();
+            return _categoryRepository.GetAll().Count();
         }
 
         public IQueryable<Category> GetList()
         {
-            return categoryRepository.GetAll();
+            return _categoryRepository.GetAll();
         }
 
         public Category GetId(int id)
         {
-            return categoryRepository.Get(id);
+            return _categoryRepository.Get(id);
         }
 
         public void Insert(string name, string description)
         {
             var category = new Category(name,description);
-            categoryRepository.Insert(category);
+            _categoryRepository.Insert(category);
         }
 
         public void Update(int id, string name, string description)
         {
-            var category = categoryRepository.Get(id);
+            var category = _categoryRepository.Get(id);
             category.Modify(name, description);
-            categoryRepository.Update(category);
+            _categoryRepository.Update(category);
         }
         
-        public Pager<Category> GetCategories(string search,int currentPage, int pageSize)
+        public async Task<Pager<Category>> GetCategories(string search,int currentPage, int pageSize)
         {
 
-
             if (search == null) search = "";
-            var result = categoryRepository.Paging(c => c.Name.Contains(search), currentPage, pageSize);
+            var result = await _categoryRepository.Paging(c => c.Name.Contains(search), currentPage, pageSize);
             return result;
 
         }

@@ -79,7 +79,7 @@ namespace OA.Repo
             await context.SaveChangesAsync();
         }
 
-        public Pager<T> Paging(Expression<Func<T, bool>> condition, int currentPage, int pageSize, params Expression<Func<T, object>>[] includes)
+        public async Task<Pager<T>> Paging(Expression<Func<T, bool>> condition, int currentPage, int pageSize, params Expression<Func<T, object>>[] includes)
         {
             // Kiểu params có thể nhận giá trị null , 1 or nhiều (danh sách)
             // Example: var query = context.Set<T>.AsQueryable
@@ -94,10 +94,9 @@ namespace OA.Repo
             var data = query.Where(condition);
             if (currentPage == 0) currentPage = 1;
             if (pageSize == 0) pageSize = 2;
-            var totalItems = data.Count();
-            var items = data.Skip((currentPage - 1) * pageSize).Take(pageSize).ToList();
+            var totalItems = await data.CountAsync();
+            var items = await data.Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
             return new Pager<T>(items, totalItems, currentPage, pageSize);
         }
-
     }
 }

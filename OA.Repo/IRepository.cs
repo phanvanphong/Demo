@@ -21,11 +21,12 @@ namespace OA.Repo
         //Task SaveChanges();
 
 
-
         // Liên quan đến phân trang
-        // IEnumerable<T> Pagination(string search,int totalItems, int currentPage, int pageSize);
         // Pager<T> Paging(Expression<Func<T, bool>> condition,  Expression<Func<T, dynamic>> include, int currentPage, int pageSize);
-        Pager<T> Paging(Expression<Func<T, bool>> condition, int currentPage, int pageSize,params Expression<Func<T, object>>[] includes);
-        // Pager<T> Paging(Expression<Func<T, bool>> condition,int currentPage, int pageSize);
+        // Pager<T> Paging(Expression<Func<T, bool>> condition, int currentPage, int pageSize,params Expression<Func<T, object>>[] includes);
+        
+        Task<Pager<T>> Paging(Expression<Func<T, bool>> condition, int currentPage, int pageSize, params Expression<Func<T, object>>[] includes);
+
+
     }
 }

@@ -42,6 +42,8 @@ namespace DemoDotNet5
                     rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
+
+
             CreateHostBuilder(args).Build().Run();
         }
 

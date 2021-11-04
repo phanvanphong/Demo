@@ -43,12 +43,17 @@ namespace DemoDotNet5.Controllers
         {
             // Test sử dụng memory cache
             DateTime currentTime;
+            // TryGetValue kiểm tra sự tồn tại của key
+            // out có nghĩa là tham số không có giá trị chính thức trước khi đi vào hàm. Hàm được gọi phải khởi tạo nó 
             bool AlreadyExit = _memoryCache.TryGetValue("CachedTime", out currentTime);
             if (!AlreadyExit)
             {
                 currentTime = DateTime.Now;
+                // Để thiết lập thời gian hết hạn này bạn sử dụng MemoryCacheEntryOptions
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
+                // SlidingExpiration sẽ quyết định cache sẽ hết hạn sau 20s nếu không được truy cập
                                         .SetSlidingExpiration(TimeSpan.FromSeconds(20));
+                // Sử dụng Set để lưu 1 item trong cache
                 _memoryCache.Set("CachedTime", currentTime, cacheEntryOptions);
             }
 

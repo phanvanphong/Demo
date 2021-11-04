@@ -17,7 +17,7 @@ namespace OA.Service
         public void Insert(string name, string description);
         public void Update(int id, string name, string description);
         public void Delete(long id);
-        public Pager<Category> GetCategories(string search, int currentPage, int pageSize);
+        public Task<Pager<Category>> GetCategories(string search, int currentPage, int pageSize);
         //public List<Category> Search(string search);
 
     }

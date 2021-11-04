@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj": {}
+    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj": {}
   },
   "projects": {
-    "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj": {
+    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj",
+        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
         "projectName": "OA.Data",
-        "projectPath": "D:\\ASPNET\\DemoDotNet5\\OA.Data\\OA.Data.csproj",
+        "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPNET\\DemoDotNet5\\OA.Data\\obj\\",
+        "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

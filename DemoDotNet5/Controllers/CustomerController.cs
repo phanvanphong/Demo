@@ -21,22 +21,24 @@ namespace DemoDotNet5.Controllers
     public class CustomerController : Controller
     {
 
-        private readonly ICustomerService customerService;
+        private readonly ICustomerService _customerService;
         private readonly IMapper _mapper;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public CustomerController(ICustomerService customerService,IMapper mapper)
+        public CustomerController(ICustomerService customerService,IMapper mapper,UserManager<ApplicationUser> userManager)
         {
-            this.customerService = customerService;
+            _customerService = customerService;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         [HttpGet]
         public IActionResult Index(string search, int currentPage, int pageSize)
         {
-            var data = customerService.GetCustomers(search, currentPage, pageSize);
+            var data = _customerService.GetCustomers(search, currentPage, pageSize);
             var customers = data.Items;
 
-            ViewBag.totalItems = customerService.Count();
+            ViewBag.totalItems = _customerService.Count();
             ViewBag.totalPages = data.TotalPages;
             ViewBag.currentPage = data.CurrentPage;
             ViewBag.search = search;
@@ -48,6 +50,9 @@ namespace DemoDotNet5.Controllers
 
         public IActionResult Create()
         {
+            int userProfileId = _customerService.GetUserProfileId(_userManager.GetUserId(User));
+            ViewBag.userProfileId = userProfileId;
+
             CustomerViewModel customerViewModel = new CustomerViewModel();
             return View(customerViewModel);
         }
@@ -56,15 +61,14 @@ namespace DemoDotNet5.Controllers
         [HttpPost]
         public IActionResult Create(CustomerViewModel customer)
         {
-
-            customerService.Insert(customer.Username, customer.Password, customer.Fullname, customer.Address, customer.Email, customer.CreatedAt, customer.UserProfileId);
+            _customerService.Insert(customer.Username, customer.Password, customer.Fullname, customer.Address, customer.Email, customer.CreatedAt, customer.UserProfileId);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var customer = customerService.GetId(id);
+            var customer = _customerService.GetId(id);
             var customerViewModel = _mapper.Map<CustomerViewModel>(customer);
             return View(customerViewModel);
         }
@@ -73,13 +77,13 @@ namespace DemoDotNet5.Controllers
         [HttpPost]
         public IActionResult EditPost(CustomerViewModel obj)
         {
-            customerService.Update(obj.Id, obj.Username, obj.Password, obj.Fullname, obj.Address, obj.Email, obj.CreatedAt, obj.UserProfileId);
+            _customerService.Update(obj.Id, obj.Username, obj.Password, obj.Fullname, obj.Address, obj.Email, obj.CreatedAt, obj.UserProfileId);
             return RedirectToAction("Index");
         }
 
         public IActionResult Delete(int id)
         {
-            customerService.Delete(id);
+            _customerService.Delete(id);
             return RedirectToAction("Index");
         }
     }
