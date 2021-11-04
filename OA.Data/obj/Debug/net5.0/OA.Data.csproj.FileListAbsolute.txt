@@ -34,3 +34,15 @@ D:\ASPNET\DemoDotNet5\OA.Data\obj\Debug\net5.0\OA.Data.csproj.CoreCompileInputs.
 D:\ASPNET\DemoDotNet5\OA.Data\obj\Debug\net5.0\OA.Data.dll
 D:\ASPNET\DemoDotNet5\OA.Data\obj\Debug\net5.0\ref\OA.Data.dll
 D:\ASPNET\DemoDotNet5\OA.Data\obj\Debug\net5.0\OA.Data.pdb
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\bin\Debug\net5.0\OA.Data.deps.json
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\bin\Debug\net5.0\OA.Data.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\bin\Debug\net5.0\ref\OA.Data.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\bin\Debug\net5.0\OA.Data.pdb
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.AssemblyInfoInputs.cache
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.AssemblyInfo.cs
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.csproj.CoreCompileInputs.cache
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\ref\OA.Data.dll
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.pdb
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.csproj.AssemblyReference.cache

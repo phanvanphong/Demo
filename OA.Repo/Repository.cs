@@ -34,16 +34,15 @@ namespace OA.Repo
             await context.SaveChangesAsync();
         }
 
-        public T Get(long id)
+        public async Task<T> Get(long id)
         {
             // SingleOrDefault trả về phần tử duy nhất thõa mãn điều kiện
-            return entities.SingleOrDefault(s => s.Id == id);
+            return await entities.SingleOrDefaultAsync(s => s.Id == id);
         }
 
-        public IQueryable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            return entities;
-
+            return entities.AsEnumerable();
         }
 
         public async Task Insert(T entity)
@@ -97,6 +96,11 @@ namespace OA.Repo
             var totalItems = await data.CountAsync();
             var items = await data.Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
             return new Pager<T>(items, totalItems, currentPage, pageSize);
+        }
+
+        public async Task<int> Count()
+        {
+            return await entities.CountAsync();
         }
     }
 }

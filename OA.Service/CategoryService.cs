@@ -16,40 +16,40 @@ namespace OA.Service
         {
             _categoryRepository = categoryRepository;
         }
-        public void Delete(long id)
+        public async Task Delete(long id)
         {
-            Category category = _categoryRepository.Get(id);
-            _categoryRepository.Delete(category);
+            Category category = await _categoryRepository.Get(id);
+            await _categoryRepository.Delete(category);
             //categoryRepository.Remove(category);
             //categoryRepository.SaveChanges();
         }
 
-        public int Count()
+        public async Task<int> Count()
         {
-            return _categoryRepository.GetAll().Count();
+            return await _categoryRepository.Count();
         }
 
-        public IQueryable<Category> GetList()
+        public IEnumerable<Category> GetList()
         {
             return _categoryRepository.GetAll();
         }
 
-        public Category GetId(int id)
+        public async Task<Category> GetId(int id)
         {
-            return _categoryRepository.Get(id);
+            return await _categoryRepository.Get(id);
         }
 
-        public void Insert(string name, string description)
+        public async Task Insert(string name, string description)
         {
             var category = new Category(name,description);
-            _categoryRepository.Insert(category);
+            await _categoryRepository.Insert(category);
         }
 
-        public void Update(int id, string name, string description)
-        {
-            var category = _categoryRepository.Get(id);
+        public async Task Update(int id, string name, string description)
+        { 
+            var category = await _categoryRepository.Get(id);
             category.Modify(name, description);
-            _categoryRepository.Update(category);
+            await _categoryRepository.Update(category);
         }
         
         public async Task<Pager<Category>> GetCategories(string search,int currentPage, int pageSize)
@@ -58,7 +58,6 @@ namespace OA.Service
             if (search == null) search = "";
             var result = await _categoryRepository.Paging(c => c.Name.Contains(search), currentPage, pageSize);
             return result;
-
         }
 
 

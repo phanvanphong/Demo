@@ -12,13 +12,14 @@ namespace OA.Repo
 {
     public interface IRepository<T> where T : BaseEnity
     {
-        IQueryable<T> GetAll();
-        T Get(long id);
+        IEnumerable<T> GetAll();
+        Task<T> Get(long id);
         Task Insert(T entity);
         Task Update(T entity);
         Task Delete(T entity);
-        //void Remove(T entity);
-        //Task SaveChanges();
+        Task<int> Count();
+        void Remove(T entity);
+        Task SaveChanges();
 
 
         // Liên quan đến phân trang

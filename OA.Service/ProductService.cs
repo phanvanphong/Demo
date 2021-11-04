@@ -16,38 +16,36 @@ namespace OA.Service
         {
             _productRepository = productRepository;
         }
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            Product product = _productRepository.Get(id);
-            _productRepository.Delete(product);
+            Product product = await _productRepository.Get(id);
+            await _productRepository.Delete(product);
 
             //productRepository.Remove(product);
             //productRepository.SaveChanges();
         }
 
-        public Product GetId(int id)
+        public async Task<Product> GetId(int id)
         {
-            return _productRepository.Get(id);
+            return await _productRepository.Get(id);
         }
 
-        public int Count()
+        public async Task<int> Count()
         {
-            return _productRepository.GetAll().Count();
+            return await _productRepository.Count();
         }
 
-        //public IQueryable<Product> GetList()
-        //{
-        //    return productRepository.GetAll();
-        //}
-
-        public void Insert(Product product)
+        public async Task Insert(string name, string price, int categoryId, string image)
         {
-            _productRepository.Insert(product);
+            var product = new Product(name, price, categoryId, image);
+            await _productRepository.Insert(product);
         }
 
-        public void Update(Product product)
+        public async Task Update(int id, string name, string price, int categoryId, string image)
         {
-            _productRepository.Update(product);
+            var product = await _productRepository.Get(id);
+            product.Modify(name, price, categoryId, image);
+            await _productRepository.Update(product);
         }
 
         public async Task<Pager<Product>> GetProducts(string search, int currentPage, int pageSize)

@@ -39,7 +39,7 @@ namespace DemoDotNet5.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string search, int currentPage, int pageSize)
+        public async Task<IActionResult> Index(string search, int currentPage, int pageSize)
         {
             // Test sử dụng memory cache
             DateTime currentTime;
@@ -69,10 +69,10 @@ namespace DemoDotNet5.Controllers
             //    log.Debug(e);
             //}
 
-            var data = _categoryService.GetCategories(search, currentPage, pageSize);
+            var data = await _categoryService.GetCategories(search, currentPage, pageSize);
             var categories = data.Items;
 
-            ViewBag.totalItems = _categoryService.Count();
+            ViewBag.totalItems = await _categoryService.Count();
             ViewBag.totalPages = data.TotalPages;
             ViewBag.currentPage = data.CurrentPage;
             ViewBag.search = search;
@@ -125,11 +125,11 @@ namespace DemoDotNet5.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Create(CategoryViewModel obj)
+        public async Task<IActionResult> Create(CategoryViewModel obj)
         {
             try
             {
-                _categoryService.Insert(obj.Name, obj.Description);
+                await _categoryService.Insert(obj.Name, obj.Description);
             }
             catch (Exception e)
             {
@@ -139,29 +139,28 @@ namespace DemoDotNet5.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-
-            var category = _categoryService.GetId(id);
+            var category = await _categoryService.GetId(id);
             var categoryViewModel = _mapper.Map<CategoryViewModel>(category);
             return View(categoryViewModel);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult EditPost(CategoryViewModel obj)
+        public async Task<IActionResult> EditPost(CategoryViewModel obj)
         {
-            _categoryService.Update(obj.Id, obj.Name, obj.Description);
+            await _categoryService.Update(obj.Id, obj.Name, obj.Description);
             return RedirectToAction("Index");
         }
 
         // Sử dụng serilog
         [HttpGet]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                _categoryService.Delete(id);
+                await _categoryService.Delete(id);
             }catch(Exception e)
             {
                 _logger.LogError("Error when delete category: {e}",e);

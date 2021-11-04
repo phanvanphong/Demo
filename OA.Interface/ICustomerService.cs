@@ -12,13 +12,13 @@ namespace OA.Service
     {
         // Lấy danh sách Customer
         // public IQueryable<Customer> GetList();
-        public int Count();
+        public Task<int> Count();
         // Lấy Customer theo id
-        public Customer GetId(int id);
-        public int GetUserProfileId(string id);
-        public void Insert(string username, string password, string fullname, string address, string email, string createdat, int userprofileid);
-        public void Update(int id, string username, string password, string fullname, string address, string email, string createdat, int userprofileid);
-        public void Delete(long id);
+        public Task<Customer> GetId(int id);
+        public Task<int> GetUserProfileId(string id);
+        public Task Insert(string username, string password, string fullname, string address, string email, string createdat, int userprofileid);
+        public Task Update(int id, string username, string password, string fullname, string address, string email, string createdat, int userprofileid);
+        public Task Delete(long id);
         public Task<Pager<Customer>> GetCustomers(string search, int currentPage, int pageSize);
     }
 }

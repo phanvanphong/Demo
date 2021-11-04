@@ -36,11 +36,12 @@ namespace DemoDotNet5.Controllers
             _categoryService = categoryService;
         }
 
-        public IActionResult Index(string search, int currentPage, int pageSize)
+        public async Task<IActionResult> Index(string search, int currentPage, int pageSize)
         {
-            var data = _productService.GetProducts(search, currentPage, pageSize);
+            var data = await _productService.GetProducts(search, currentPage, pageSize);
             var products = data.Items;
-            ViewBag.totalItems = _productService.Count();
+
+            ViewBag.totalItems = await _productService.Count();
             ViewBag.totalPages = data.TotalPages;
             ViewBag.currentPage = data.CurrentPage;
             ViewBag.search = search;
@@ -60,7 +61,7 @@ namespace DemoDotNet5.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Create(ProductViewModel obj)
+        public async Task<IActionResult> Create(ProductViewModel obj)
         {
             if (ModelState.IsValid)
             {
@@ -75,35 +76,33 @@ namespace DemoDotNet5.Controllers
                     using var fileStream = new FileStream(filePath, FileMode.Create);
                     obj.FileUpload.CopyTo(fileStream);
                 }
-
-                var Product = new Product(obj.Name, obj.Price, obj.CategoryId, fileName);
-                _productService.Insert(Product);
+                await _productService.Insert(obj.Name, obj.Price, obj.CategoryId, fileName);
                 return RedirectToAction("Index");
             }
             return View();
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
             var categories = _categoryService.GetList();
             var categoryViewModel = _mapper.Map<List<CategoryViewModel>>(categories);
             ViewBag.cats = categoryViewModel;
 
-            var product = _productService.GetId(id);
+            var product = await _productService.GetId(id);
             var productViewModel = _mapper.Map<ProductViewModel>(product);
             return View(productViewModel);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult EditPost(ProductViewModel obj,int id)
+        public async Task<IActionResult> EditPost(ProductViewModel obj,int id)
         {
             var categories = _categoryService.GetList();
             var categoryViewModel = _mapper.Map<List<CategoryViewModel>>(categories);
             ViewBag.categories = categoryViewModel;
 
-            var product = _productService.GetId(id);
+            var product = await _productService.GetId(id);
             if (ModelState.IsValid)
             {
                 // Lấy tên hình ảnh
@@ -126,7 +125,7 @@ namespace DemoDotNet5.Controllers
                 product.Name = obj.Name;
                 product.Price = obj.Price;
                 product.CategoryId = obj.CategoryId;
-                _productService.Update(product);
+                await _productService.Update(id,product.Name,product.Price,product.CategoryId,product.Image);
 
                 return RedirectToAction("Index");
             }
@@ -134,9 +133,9 @@ namespace DemoDotNet5.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _productService.Delete(id);
+            await _productService.Delete(id);
             return RedirectToAction("Index");
         }
     }

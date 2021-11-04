@@ -53,8 +53,6 @@ D:\ASPNET\DemoDotNet5\OA.Repo\bin\Debug\net5.0\OA.Repo.runtimeconfig.dev.json
 D:\ASPNET\DemoDotNet5\OA.Repo\obj\Debug\net5.0\OA.Repo.genruntimeconfig.cache
 D:\ASPNET\DemoDotNet5\OA.Repo\obj\Debug\net5.0\OA.Repo.csproj.CopyComplete
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\bin\Debug\net5.0\OA.Repo.deps.json
-D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\bin\Debug\net5.0\OA.Repo.runtimeconfig.json
-D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\bin\Debug\net5.0\OA.Repo.runtimeconfig.dev.json
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\bin\Debug\net5.0\OA.Repo.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\bin\Debug\net5.0\ref\OA.Repo.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\bin\Debug\net5.0\OA.Repo.pdb
@@ -70,4 +68,4 @@ D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\obj\Debug\net5.0\OA.Repo.csproj.CoreCom
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\obj\Debug\net5.0\OA.Repo.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\obj\Debug\net5.0\ref\OA.Repo.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\obj\Debug\net5.0\OA.Repo.pdb
-D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\obj\Debug\net5.0\OA.Repo.genruntimeconfig.cache
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Repo\obj\Debug\net5.0\OA.Repo.csproj.CopyComplete

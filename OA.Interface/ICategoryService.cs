@@ -10,13 +10,13 @@ namespace OA.Service
     public interface ICategoryService
     {
         // Lấy danh sách Category
-        public IQueryable<Category> GetList();
-        public int Count();
+        public IEnumerable<Category> GetList();
+        public Task<int> Count();
         // Lấy Category theo id
-        public Category GetId(int id);
-        public void Insert(string name, string description);
-        public void Update(int id, string name, string description);
-        public void Delete(long id);
+        public Task<Category> GetId(int id);
+        public Task Insert(string name, string description);
+        public Task Update(int id, string name, string description);
+        public Task Delete(long id);
         public Task<Pager<Category>> GetCategories(string search, int currentPage, int pageSize);
         //public List<Category> Search(string search);
 

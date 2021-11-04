@@ -56,3 +56,4 @@ D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.cspr
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\ref\OA.Interface.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.pdb
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.CopyComplete

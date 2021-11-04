@@ -10,11 +10,11 @@ namespace OA.Service
     public interface IProductService
     {
         // public IQueryable<Product> GetList();
-        public Product GetId(int id);
-        public int Count();
-        public void Insert(Product product);
-        public void Update(Product product);
-        public void Delete(int id);
+        public Task<Product> GetId(int id);
+        public Task<int> Count();
+        public Task Insert(string name, string price, int categoryId, string image);
+        public Task Update(int id, string name, string price, int categoryId, string image);
+        public Task Delete(int id);
         public Task<Pager<Product>> GetProducts(string search, int currentPage, int pageSize);
     }
 }

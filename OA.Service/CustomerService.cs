@@ -21,41 +21,36 @@ namespace OA.Service
             _customerRepository = customerRepository;
             _context = context;
         }
-        public void Delete(long id)
+        public async Task Delete(long id)
         {
-            Customer customer = _customerRepository.Get(id);
+            Customer customer = await _customerRepository.Get(id);
 
-            _customerRepository.Delete(customer);
+            await _customerRepository.Delete(customer);
             //customerRepository.Remove(customer);
             //customerRepository.SaveChanges();
         }
 
-        public Customer GetId(int id)
+        public async Task<Customer> GetId(int id)
         {
-          return _customerRepository.Get(id);
+          return await _customerRepository.Get(id);
         }
 
-        //public IQueryable<Customer> GetList()
-        //{
-        //    return customerRepository.GetAll();
-        //}
-
-        public int Count()
+        public async Task<int> Count()
         {
-            return _customerRepository.GetAll().Count();
+            return await _customerRepository.Count();
         }
 
-        public void Insert(string username, string password, string fullname, string address, string email, string createdat, int userprofileid)
+        public async Task Insert(string username, string password, string fullname, string address, string email, string createdat, int userprofileid)
         {
             var customer = new Customer(username, password, fullname, address, email, createdat, userprofileid);
-            _customerRepository.Insert(customer);
+            await _customerRepository.Insert(customer);
         }
 
-        public void Update(int id, string username, string password, string fullname, string address, string email, string createdat, int userprofileid)
+        public async Task Update(int id, string username, string password, string fullname, string address, string email, string createdat, int userprofileid)
         {
-            var customer = _customerRepository.Get(id);
+            var customer = await _customerRepository.Get(id);
             customer.Modify(username, password, fullname, address, email, createdat, userprofileid);
-            _customerRepository.Update(customer);
+            await _customerRepository.Update(customer);
         }
 
         public async Task<Pager<Customer>> GetCustomers(string search, int currentPage, int pageSize)
@@ -65,9 +60,10 @@ namespace OA.Service
             return result;
         }
 
-        public int GetUserProfileId(string id)
+        public async Task<int> GetUserProfileId(string id)
         {
-            return _context.Users.Find(id).UserProfileId;
+            var user = await _context.Users.FindAsync(id);
+            return user.UserProfileId;
         }
     }
 }

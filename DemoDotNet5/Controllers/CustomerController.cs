@@ -33,12 +33,12 @@ namespace DemoDotNet5.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string search, int currentPage, int pageSize)
+        public async Task<IActionResult> Index(string search, int currentPage, int pageSize)
         {
-            var data = _customerService.GetCustomers(search, currentPage, pageSize);
+            var data = await _customerService.GetCustomers(search, currentPage, pageSize);
             var customers = data.Items;
 
-            ViewBag.totalItems = _customerService.Count();
+            ViewBag.totalItems = await _customerService.Count();
             ViewBag.totalPages = data.TotalPages;
             ViewBag.currentPage = data.CurrentPage;
             ViewBag.search = search;
@@ -48,9 +48,9 @@ namespace DemoDotNet5.Controllers
             return View(customerViewModel);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            int userProfileId = _customerService.GetUserProfileId(_userManager.GetUserId(User));
+            int userProfileId = await _customerService.GetUserProfileId(_userManager.GetUserId(User));
             ViewBag.userProfileId = userProfileId;
 
             CustomerViewModel customerViewModel = new CustomerViewModel();
@@ -59,31 +59,31 @@ namespace DemoDotNet5.Controllers
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Create(CustomerViewModel customer)
+        public async Task<IActionResult> Create(CustomerViewModel customer)
         {
-            _customerService.Insert(customer.Username, customer.Password, customer.Fullname, customer.Address, customer.Email, customer.CreatedAt, customer.UserProfileId);
+            await _customerService.Insert(customer.Username, customer.Password, customer.Fullname, customer.Address, customer.Email, customer.CreatedAt, customer.UserProfileId);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var customer = _customerService.GetId(id);
+            var customer = await _customerService.GetId(id);
             var customerViewModel = _mapper.Map<CustomerViewModel>(customer);
             return View(customerViewModel);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult EditPost(CustomerViewModel obj)
+        public async Task<IActionResult> EditPost(CustomerViewModel obj)
         {
-            _customerService.Update(obj.Id, obj.Username, obj.Password, obj.Fullname, obj.Address, obj.Email, obj.CreatedAt, obj.UserProfileId);
+            await _customerService.Update(obj.Id, obj.Username, obj.Password, obj.Fullname, obj.Address, obj.Email, obj.CreatedAt, obj.UserProfileId);
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            _customerService.Delete(id);
+            await _customerService.Delete(id);
             return RedirectToAction("Index");
         }
     }

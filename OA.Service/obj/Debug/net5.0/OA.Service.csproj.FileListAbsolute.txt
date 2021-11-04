@@ -70,7 +70,7 @@ D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.Generate
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.AssemblyInfoInputs.cache
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.AssemblyInfo.cs
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.csproj.CoreCompileInputs.cache
-D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.csproj.CopyComplete
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\ref\OA.Service.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.pdb
+D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.csproj.CopyComplete
