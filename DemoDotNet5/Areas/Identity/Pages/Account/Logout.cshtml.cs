@@ -33,11 +33,11 @@ namespace DemoDotNet5.Areas.Identity.Pages.Account
             _logger.LogInformation("User logged out.");
             if (returnUrl != null)
             {
-                return LocalRedirect(returnUrl);
+                return Redirect("Login");
             }
             else
             {
-                return RedirectToPage();
+                return Redirect("Login");
             }
         }
     }

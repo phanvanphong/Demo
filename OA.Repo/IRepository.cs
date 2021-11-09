@@ -12,7 +12,7 @@ namespace OA.Repo
 {
     public interface IRepository<T> where T : BaseEnity
     {
-        IEnumerable<T> GetAll();
+        IQueryable<T> GetAll();
         Task<T> Get(long id);
         Task Insert(T entity);
         Task Update(T entity);
@@ -28,6 +28,9 @@ namespace OA.Repo
         
         Task<Pager<T>> Paging(Expression<Func<T, bool>> condition, int currentPage, int pageSize, params Expression<Func<T, object>>[] includes);
 
+        // Select dữ liệu
+        Task<IEnumerable<T>> SelectData(Expression<Func<T, bool>> condition, Expression<Func<T, object>> orderby, params Expression<Func<T, object>>[] includes);
 
+       
     }
 }

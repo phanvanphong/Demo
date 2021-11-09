@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\DemoDotNet5\\DemoDotNet5.csproj": {}
+    "D:\\ASPNETCore\\DemoDotNet5\\Demo\\DemoDotNet5\\DemoDotNet5.csproj": {}
   },
   "projects": {
-    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\DemoDotNet5\\DemoDotNet5.csproj": {
+    "D:\\ASPNETCore\\DemoDotNet5\\Demo\\DemoDotNet5\\DemoDotNet5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\DemoDotNet5\\DemoDotNet5.csproj",
+        "projectUniqueName": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\DemoDotNet5\\DemoDotNet5.csproj",
         "projectName": "DemoDotNet5",
-        "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\DemoDotNet5\\DemoDotNet5.csproj",
+        "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\DemoDotNet5\\DemoDotNet5.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\DemoDotNet5\\obj\\",
+        "outputPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\DemoDotNet5\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Service\\OA.Service.csproj": {
-                "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Service\\OA.Service.csproj"
+              "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Service\\OA.Service.csproj": {
+                "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Service\\OA.Service.csproj"
               }
             }
           }
@@ -127,14 +127,14 @@
         }
       }
     },
-    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj": {
+    "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
+        "projectUniqueName": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj",
         "projectName": "OA.Data",
-        "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
+        "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\obj\\",
+        "outputPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -191,14 +191,14 @@
         }
       }
     },
-    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj": {
+    "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\OA.Interface.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj",
+        "projectUniqueName": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\OA.Interface.csproj",
         "projectName": "OA.Interface",
-        "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj",
+        "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\OA.Interface.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\obj\\",
+        "outputPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -215,8 +215,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj": {
-                "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj"
+              "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj": {
+                "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj"
               }
             }
           }
@@ -249,14 +249,14 @@
         }
       }
     },
-    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Repo\\OA.Repo.csproj": {
+    "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Repo\\OA.Repo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Repo\\OA.Repo.csproj",
+        "projectUniqueName": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Repo\\OA.Repo.csproj",
         "projectName": "OA.Repo",
-        "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Repo\\OA.Repo.csproj",
+        "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Repo\\OA.Repo.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Repo\\obj\\",
+        "outputPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Repo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -273,11 +273,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj": {
-                "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj"
+              "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj": {
+                "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj"
               },
-              "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj": {
-                "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj"
+              "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\OA.Interface.csproj": {
+                "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\OA.Interface.csproj"
               }
             }
           }
@@ -320,14 +320,14 @@
         }
       }
     },
-    "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Service\\OA.Service.csproj": {
+    "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Service\\OA.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Service\\OA.Service.csproj",
+        "projectUniqueName": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Service\\OA.Service.csproj",
         "projectName": "OA.Service",
-        "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Service\\OA.Service.csproj",
+        "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Service\\OA.Service.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Service\\obj\\",
+        "outputPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -344,8 +344,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Repo\\OA.Repo.csproj": {
-                "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Repo\\OA.Repo.csproj"
+              "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Repo\\OA.Repo.csproj": {
+                "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Repo\\OA.Repo.csproj"
               }
             }
           }

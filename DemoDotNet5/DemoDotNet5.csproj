@@ -6,9 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Contents\**" />
+    <Compile Remove="wwwroot\admin\assets\**" />
     <Content Remove="Contents\**" />
+    <Content Remove="wwwroot\admin\assets\**" />
     <EmbeddedResource Remove="Contents\**" />
+    <EmbeddedResource Remove="wwwroot\admin\assets\**" />
     <None Remove="Contents\**" />
+    <None Remove="wwwroot\admin\assets\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +53,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\login\" />
   </ItemGroup>
 
   <ItemGroup>

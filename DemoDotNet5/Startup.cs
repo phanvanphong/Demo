@@ -53,6 +53,16 @@ namespace DemoDotNet5
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            // Đăng ký sử dụng Session
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Phiên hết hạn (Session Time out)
+                options.IdleTimeout = TimeSpan.FromSeconds(100);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             // Setting Auto Mapper
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
@@ -108,8 +118,16 @@ namespace DemoDotNet5
 
             app.UseAuthorization();
 
+            // Đăng ký sử dụng session
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

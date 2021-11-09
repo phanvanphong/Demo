@@ -54,5 +54,24 @@ namespace OA.Service
             var result = await _productRepository.Paging(p => p.Name.Contains(search), currentPage, pageSize, c => c.Category);
             return result;
         }
+
+        public async Task<IEnumerable<Product>> FeaturedProducts()
+        {
+            var newProducts = await _productRepository.SelectData(p => p.Name != "", p => p.Id ,c => c.Category);
+            return newProducts;
+        }
+
+        public async Task<IEnumerable<Product>> NewProducts()
+        {
+            var newProducts = await _productRepository.SelectData(p => p.Name != "", p => p.Id ,c => c.Category);
+            return newProducts;
+        }
+
+        public async Task<IEnumerable<Product>> RelatedProducts(int id)
+        {
+            var relatedProducts = await _productRepository.SelectData(p => p.CategoryId == id, p => p.Id, c => c.Category);
+            return relatedProducts;
+        }
     }
 }
+

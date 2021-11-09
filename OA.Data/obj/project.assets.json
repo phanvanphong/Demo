@@ -747,11 +747,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
+      "projectUniqueName": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj",
       "projectName": "OA.Data",
-      "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
+      "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\obj\\",
+      "outputPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

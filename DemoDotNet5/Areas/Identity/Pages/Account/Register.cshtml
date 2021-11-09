@@ -1,50 +1,49 @@
-﻿@page 
+﻿@page
+
 @model RegisterModel
-@{
-    ViewData["Title"] = "Register";
-}
 
-<h1>@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-12">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" placeholder="Enter Email" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.FirstName"></label>
-                <input asp-for="Input.FirstName" class="form-control" placeholder="Enter FirstName" />
-                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.LastName"></label>
-                <input asp-for="Input.LastName" class="form-control" placeholder="Enter LastName" />
-                <span asp-validation-for="Input.LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.PhoneNumber"></label>
-                <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Enter PhoneNumber" />
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" placeholder="Enter Password" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+
+<header>Signup Form</header>
+<form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <div class="field space">
+        <span class="fa fa-user"></span>
+        <input asp-for="Input.Email" placeholder="Enter Email" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
     </div>
+    <div class="field space">
+        <span class="fa fa-lock"></span>
+        <input asp-for="Input.FirstName" placeholder="Enter FirstName" />
+        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+    </div>
+    <div class="field space">
+        <span class="fa fa-user"></span>
+        <input asp-for="Input.LastName" placeholder="Enter LastName" />
+        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+    </div>
+    <div class="field space">
+        <span class="fa fa-lock"></span>
+        <input asp-for="Input.PhoneNumber" placeholder="Enter PhoneNumber" />
+        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="field space">
+        <span class="fa fa-user"></span>
+        <input asp-for="Input.Password" placeholder="Enter Password" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+    <div class="field space">
+        <span class="fa fa-lock"></span>
+        <input asp-for="Input.ConfirmPassword" placeholder="Enter ConfirmPassword" />
+        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="field space">
+        <input type="submit" value="REGISTER">
+    </div>
+</form>
+<br />
+<div class="signup">
+    Back to Signin?
+    <a asp-area="Identity" asp-page="Login">Signin Now</a>
 </div>
 
 @section Scripts {

@@ -1,90 +1,59 @@
-﻿using DemoDotNet5.Models;
-using DemoDotNet5.ViewModel;
-using Microsoft.AspNetCore.Identity;
+﻿using DemoDotNet5.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using OA.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using DemoDotNet5.Data;
-using OA.Data;
-using OA.Service;
 
 namespace DemoDotNet5.Controllers
 {
-    [Authorize(Policy = "ManagerStore")]
-
-    [Route("Admin/Customer/[action]/{id?}")]
     public class CustomerController : Controller
     {
-
+        private readonly ICategoryService _categoryService;
         private readonly ICustomerService _customerService;
-        private readonly IMapper _mapper;
-        private readonly UserManager<ApplicationUser> _userManager;
-
-        public CustomerController(ICustomerService customerService,IMapper mapper,UserManager<ApplicationUser> userManager)
+        public CustomerController(ICategoryService categoryService,ICustomerService customerService)
         {
+            _categoryService = categoryService;
             _customerService = customerService;
-            _mapper = mapper;
-            _userManager = userManager;
         }
-
-        [HttpGet]
-        public async Task<IActionResult> Index(string search, int currentPage, int pageSize)
+        public IActionResult LoginCustomer()
         {
-            var data = await _customerService.GetCustomers(search, currentPage, pageSize);
-            var customers = data.Items;
+            var categories = _categoryService.GetList();
+            ViewBag.categories = categories;
 
-            ViewBag.totalItems = await _customerService.Count();
-            ViewBag.totalPages = data.TotalPages;
-            ViewBag.currentPage = data.CurrentPage;
-            ViewBag.search = search;
-            ViewBag.pageSize = data.PageSize;
-
-            var customerViewModel = _mapper.Map<List<CustomerViewModel>>(customers);
+            CustomerViewModel customerViewModel = new CustomerViewModel();
             return View(customerViewModel);
         }
-
-        public async Task<IActionResult> Create()
+        
+        [HttpPost]
+        public async Task<IActionResult> CheckLoginCustomer(string username, string password)
         {
-            int userProfileId = await _customerService.GetUserProfileId(_userManager.GetUserId(User));
-            ViewBag.userProfileId = userProfileId;
+            var data = await _customerService.CheckLogin(username, password);
+            if (data != null)
+            {
+                HttpContext.Session.SetInt32("customerId", data.Id);
+                HttpContext.Session.SetString("username", data.Username);
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("RegisterCustomer","Customer");
+        }
+
+        public IActionResult RegisterCustomer()
+        {
+            var categories = _categoryService.GetList();
+            ViewBag.categories = categories;
 
             CustomerViewModel customerViewModel = new CustomerViewModel();
             return View(customerViewModel);
         }
 
-        [ValidateAntiForgeryToken]
-        [HttpPost]
-        public async Task<IActionResult> Create(CustomerViewModel customer)
+        public IActionResult LogoutCustomer()
         {
-            await _customerService.Insert(customer.Username, customer.Password, customer.Fullname, customer.Address, customer.Email, customer.CreatedAt, customer.UserProfileId);
-            return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Edit(int id)
-        {
-            var customer = await _customerService.GetId(id);
-            var customerViewModel = _mapper.Map<CustomerViewModel>(customer);
-            return View(customerViewModel);
-        }
-
-        [ValidateAntiForgeryToken]
-        [HttpPost]
-        public async Task<IActionResult> EditPost(CustomerViewModel obj)
-        {
-            await _customerService.Update(obj.Id, obj.Username, obj.Password, obj.Fullname, obj.Address, obj.Email, obj.CreatedAt, obj.UserProfileId);
-            return RedirectToAction("Index");
-        }
-
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _customerService.Delete(id);
-            return RedirectToAction("Index");
+            HttpContext.Session.Remove("customerId");
+            HttpContext.Session.Remove("username");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

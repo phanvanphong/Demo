@@ -1,0 +1,145 @@
+﻿@model IEnumerable<DemoDotNet5.ViewModel.CategoryViewModel>
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Category</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Total List: @ViewBag.totalItems</h3>
+
+                        <div class="card-tools">
+                            <form asp-action="Index" method="get">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="search" class="form-control float-right" placeholder="Search">
+
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Count() > 0)
+                                {
+                                    @foreach (var obj in Model)
+                                    {
+                                        <tr>
+                                            <td>@obj.Name</td>
+                                            <td>@obj.Description</td>
+                                            <td>
+                                                <a asp-controller="Category" asp-route-Id="@obj.Id" asp-action="Edit" class="btn btn-success">Edit</a>
+                                                <a onclick="return confirm('Are you sure ?')" asp-controller="Category" asp-route-Id="@obj.Id" asp-action="Delete" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <form asp-action="Index" method="get">
+                        <div class="input-group">
+                            <input type="number" name="pageSize" class="form-control" value="@ViewBag.pageSize" min="1">
+                            <input type="hidden" name="search" value="@ViewBag.search" />
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" type="submit">
+                                    OK
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <ul class="pagination justify-content-end">
+                    @{
+                        int totalPages = ViewBag.totalPages;
+                        int currentPage = ViewBag.currentPage;
+                        string search = ViewBag.search;
+                        int pageSize = ViewBag.pageSize;
+                        int totalItems = ViewBag.totalItems;
+
+
+                        // Hiển thị nút < nếu pageCurrent lớn hơn 1 và ngược lại thỳ sẽ gán thuộc tính disabled
+                        if (currentPage > 1)
+                        {
+                            int previousPage = currentPage - 1;
+                            <li class="page-item"><a class="page-link active" href="?currentPage=@previousPage&search=@search&pageSize=@pageSize">❮</a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item"><a class="page-link active" disabled>❮</a></li>
+                        }
+
+                        // Hiển thị các page nếu page nào đang hiển thị sẽ để trạng thái active
+                        int i;
+                        for (i = 1; i <= totalPages; i++)
+                        {
+                            if (i == currentPage)
+                            {
+                                <li class="page-item active"><a class="page-link" href="?currentPage=@i&search=@search&pageSize=@pageSize">@i</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a id="" class="page-link" href="?currentPage=@i&search=@search&pageSize=@pageSize">@i</a></li>
+                            }
+                        }
+
+                        // Hiển thị nút > nếu pageCurrent lớn hơn 0 và pageCurrent < totalPages ngược lại thỳ sẽ gán thuộc tính disabled
+                        if (currentPage > 0 && currentPage < totalPages)
+                        {
+                            int nextPage = currentPage + 1;
+                            <li class="page-item"><a class="page-link active" href="?currentPage=@nextPage&search=@search&pageSize=@pageSize">❯</a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item"><a class="page-link active" disabled>❯</a></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+
+
+
+
+

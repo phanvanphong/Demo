@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Vmxc40b0AZxeBCfYdlsEILOAzzOSjZ/j+YRLPnHtyqKDtS212ho7xvMCXjKxEn8OUMsQdLbWrK46pk26NZBaGg==",
+  "dgSpecHash": "cCA6kja1zqPk+SSNDzfck/5zGz+0p9PqtSE/C1FtNqXzyTbJeFpOnbpTSh425Rt1+XTBg0nsxB6k0VI8pTI+mQ==",
   "success": true,
-  "projectFilePath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj",
+  "projectFilePath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.11\\microsoft.aspnetcore.cryptography.internal.5.0.11.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.11\\microsoft.aspnetcore.cryptography.keyderivation.5.0.11.nupkg.sha512",

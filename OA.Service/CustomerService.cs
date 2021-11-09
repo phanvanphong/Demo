@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DemoDotNet5.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using OA.Data;
 using OA.Repo;
 using System;
@@ -64,6 +65,12 @@ namespace OA.Service
         {
             var user = await _context.Users.FindAsync(id);
             return user.UserProfileId;
+        }
+
+        public async Task<Customer> CheckLogin(string username, string password)
+        {
+            var data = await _customerRepository.GetAll().Where(c => c.Username.Equals(username) && c.Password.Equals(password)).FirstOrDefaultAsync();
+            return data;
         }
     }
 }

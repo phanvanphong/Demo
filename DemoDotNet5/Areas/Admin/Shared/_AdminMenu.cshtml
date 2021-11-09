@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService authorizationService
+@{
+    // Kiểm tra User có thõa mãn Policy Administrator hay không tức là User có quyền Administrator hay không 
+    var resultAuthorize = await authorizationService.AuthorizeAsync(User, "Administrator");
+}
+
+@if (resultAuthorize.Succeeded)
+{
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>
+            Roles
+            <i class="fas fa-angle-left right"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a asp-area="Identity" asp-controller="Role" asp-action="Index" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>List</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a asp-area="Identity" asp-controller="Role" asp-action="Create" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Insert</p>
+            </a>
+        </li>
+    </ul>
+</li>
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-table"></i>
+        <p>
+            Users
+            <i class="fas fa-angle-left right"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a asp-area="Identity" asp-controller="User" asp-action="Index" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>List</p>
+            </a>
+        </li>
+    </ul>
+</li>
+
+}

@@ -16,5 +16,9 @@ namespace OA.Service
         public Task Update(int id, string name, string price, int categoryId, string image);
         public Task Delete(int id);
         public Task<Pager<Product>> GetProducts(string search, int currentPage, int pageSize);
+        public Task<IEnumerable<Product>> FeaturedProducts();
+        public Task<IEnumerable<Product>> NewProducts();
+        public Task<IEnumerable<Product>> RelatedProducts(int id);
+
     }
 }

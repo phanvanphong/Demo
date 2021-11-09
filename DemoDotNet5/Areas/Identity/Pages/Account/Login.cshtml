@@ -2,55 +2,39 @@
 @page
 @model LoginModel
 
-@{
-    ViewData["Title"] = "Log in";
-}
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-12">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" placeholder="Enter Username" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" placeholder="Enter Password" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Quên mật khẩu?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Đăng ký tài khoản mới</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Gửi lại email xác thực</a>
-                    </p>
-                </div>
-            </form>
-        </section>
+<header>Login Form</header>
+<form id="account" method="post">
+    <div class="field">
+        <span class="fa fa-user"></span>
+        <input asp-for="Input.Email" placeholder="Enter Username" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="field space">
+        <span class="fa fa-lock"></span>
+        <input asp-for="Input.Password" placeholder="Enter Password" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+    <div class="pass">
+        <a href="#">Forgot Password?</a>
+    </div>
+    <div class="field">
+        <input type="submit" value="LOGIN">
+    </div>
+</form>
+<div class="login">
+    Or login with
+</div>
+<div class="links">
+    <div class="facebook">
+        <i class="fab fa-facebook-f"><span>Facebook</span></i>
+    </div>
+    <div class="instagram">
+        <i class="fab fa-instagram"><span>Instagram</span></i>
     </div>
 </div>
+<div class="signup">
+    Don't have account?
+    <a asp-area="Identity" asp-page="./Register">Signup Now</a>
+</div>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}

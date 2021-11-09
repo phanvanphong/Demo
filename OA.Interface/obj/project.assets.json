@@ -765,11 +765,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj",
+      "projectUniqueName": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\OA.Interface.csproj",
       "projectName": "OA.Interface",
-      "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\OA.Interface.csproj",
+      "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\OA.Interface.csproj",
       "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Interface\\obj\\",
+      "outputPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Interface\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -786,8 +786,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj": {
-              "projectPath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\OA.Data\\OA.Data.csproj"
+            "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj": {
+              "projectPath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\OA.Data\\OA.Data.csproj"
             }
           }
         }

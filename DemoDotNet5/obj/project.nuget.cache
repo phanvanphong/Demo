@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KAKJYRXer1dSF81Liy904MV359w/l72t10xWo0cvOoC/ChZ46QpmA1p64d8iVkBbiGVtbMfYB/aolVkoKF0Pzg==",
+  "dgSpecHash": "R90Bm94iLxyJzfiXcd9+uvc+ZC5GvbGCeiC2kJWXkiVA/iTFrAkseBCM4wtgbMTfJ8zpJieU4IXZwv+iXC08Zw==",
   "success": true,
-  "projectFilePath": "D:\\ASPNET\\DemoDotNet5 - Copy (2)\\DemoDotNet5\\DemoDotNet5.csproj",
+  "projectFilePath": "D:\\ASPNETCore\\DemoDotNet5\\Demo\\DemoDotNet5\\DemoDotNet5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

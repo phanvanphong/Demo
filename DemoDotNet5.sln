@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Data", "OA.Data\OA.Data.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Service", "OA.Service\OA.Service.csproj", "{AD918B0E-4EA4-471E-A9B9-6527660AFEEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OA.Interface", "OA.Interface\OA.Interface.csproj", "{257D59F0-62F9-44A0-910D-937376B227C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OA.Interface", "OA.Interface\OA.Interface.csproj", "{257D59F0-62F9-44A0-910D-937376B227C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

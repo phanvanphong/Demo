@@ -20,5 +20,6 @@ namespace OA.Service
         public Task Update(int id, string username, string password, string fullname, string address, string email, string createdat, int userprofileid);
         public Task Delete(long id);
         public Task<Pager<Customer>> GetCustomers(string search, int currentPage, int pageSize);
+        public Task<Customer> CheckLogin(string username, string password);
     }
 }

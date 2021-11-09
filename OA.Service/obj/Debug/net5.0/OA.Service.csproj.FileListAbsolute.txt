@@ -74,3 +74,40 @@ D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\ref\OA.Service.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.pdb
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Service\obj\Debug\net5.0\OA.Service.csproj.CopyComplete
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Service.deps.json
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Service.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\ref\OA.Service.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Service.pdb
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Repo.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Repo.pdb
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Data.pdb
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\bin\Debug\net5.0\OA.Interface.pdb
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\OA.Service.csproj.AssemblyReference.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\OA.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\OA.Service.AssemblyInfoInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\OA.Service.AssemblyInfo.cs
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\OA.Service.csproj.CoreCompileInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\OA.Service.csproj.CopyComplete
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\OA.Service.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\ref\OA.Service.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Service\obj\Debug\net5.0\OA.Service.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Service.deps.json
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Service.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\ref\OA.Service.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Service.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Repo.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Repo.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Data.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\bin\Debug\net5.0\OA.Interface.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.csproj.AssemblyReference.cache
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.AssemblyInfoInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.AssemblyInfo.cs
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.csproj.CoreCompileInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\ref\OA.Service.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.pdb

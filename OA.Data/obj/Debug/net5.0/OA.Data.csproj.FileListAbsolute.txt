@@ -46,3 +46,27 @@ D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\ref\OA.Data.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.pdb
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Data\obj\Debug\net5.0\OA.Data.csproj.AssemblyReference.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\bin\Debug\net5.0\OA.Data.deps.json
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\bin\Debug\net5.0\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\bin\Debug\net5.0\ref\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\bin\Debug\net5.0\OA.Data.pdb
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\obj\Debug\net5.0\OA.Data.csproj.AssemblyReference.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\obj\Debug\net5.0\OA.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\obj\Debug\net5.0\OA.Data.AssemblyInfoInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\obj\Debug\net5.0\OA.Data.AssemblyInfo.cs
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\obj\Debug\net5.0\OA.Data.csproj.CoreCompileInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\obj\Debug\net5.0\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\obj\Debug\net5.0\ref\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Data\obj\Debug\net5.0\OA.Data.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\bin\Debug\net5.0\OA.Data.deps.json
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\bin\Debug\net5.0\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\bin\Debug\net5.0\ref\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\bin\Debug\net5.0\OA.Data.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\obj\Debug\net5.0\OA.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\obj\Debug\net5.0\OA.Data.AssemblyInfoInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\obj\Debug\net5.0\OA.Data.AssemblyInfo.cs
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\obj\Debug\net5.0\OA.Data.csproj.CoreCompileInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\obj\Debug\net5.0\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\obj\Debug\net5.0\ref\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\obj\Debug\net5.0\OA.Data.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Data\obj\Debug\net5.0\OA.Data.csproj.AssemblyReference.cache

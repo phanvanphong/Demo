@@ -40,9 +40,9 @@ namespace OA.Repo
             return await entities.SingleOrDefaultAsync(s => s.Id == id);
         }
 
-        public IEnumerable<T> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return entities.AsEnumerable();
+            return entities.AsQueryable();
         }
 
         public async Task Insert(T entity)
@@ -92,10 +92,27 @@ namespace OA.Repo
             // Thêm điều kiện
             var data = query.Where(condition);
             if (currentPage == 0) currentPage = 1;
-            if (pageSize == 0) pageSize = 2;
+            if (pageSize == 0) pageSize = 4;
             var totalItems = await data.CountAsync();
             var items = await data.Skip((currentPage - 1) * pageSize).Take(pageSize).ToListAsync();
             return new Pager<T>(items, totalItems, currentPage, pageSize);
+        }
+
+        public async Task<IEnumerable<T>> SelectData(Expression<Func<T, bool>> condition, Expression<Func<T, object>> orderby , params Expression<Func<T, object>>[] includes)
+        {
+            // Kiểu params có thể nhận giá trị null , 1 or nhiều (danh sách)
+            // Example: var query = context.Set<T>.AsQueryable
+            // Phương thức AsQueryable() nhằm tạo câu truy vấn chứ chưa thực hiện truy vấn
+            var query = entities.AsQueryable();
+            // Duyệt từng phần tử của mảng includes
+            foreach (Expression<Func<T, object>> include in includes)
+            {
+                query = query.Include(include);
+            }
+            // Thêm điều kiện
+            var data = query.Where(condition).OrderByDescending(orderby);
+            var items = await data.ToListAsync();
+            return items;
         }
 
         public async Task<int> Count()

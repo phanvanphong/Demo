@@ -57,3 +57,32 @@ D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\ref\OA.Interface.dll
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.pdb
 D:\ASPNET\DemoDotNet5 - Copy (2)\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.CopyComplete
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\bin\Debug\net5.0\OA.Interface.deps.json
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\bin\Debug\net5.0\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\bin\Debug\net5.0\ref\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\bin\Debug\net5.0\OA.Interface.pdb
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\bin\Debug\net5.0\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\bin\Debug\net5.0\OA.Data.pdb
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.AssemblyReference.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.AssemblyInfoInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.AssemblyInfo.cs
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.CoreCompileInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.CopyComplete
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\ref\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo1\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\bin\Debug\net5.0\OA.Interface.deps.json
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\bin\Debug\net5.0\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\bin\Debug\net5.0\ref\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\bin\Debug\net5.0\OA.Interface.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\bin\Debug\net5.0\OA.Data.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\bin\Debug\net5.0\OA.Data.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.AssemblyReference.cache
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.AssemblyInfoInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.AssemblyInfo.cs
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.CoreCompileInputs.cache
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\ref\OA.Interface.dll
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.pdb
