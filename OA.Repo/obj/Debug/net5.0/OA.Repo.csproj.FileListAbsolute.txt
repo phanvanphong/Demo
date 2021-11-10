@@ -102,3 +102,4 @@ D:\ASPNETCore\DemoDotNet5\Demo\OA.Repo\obj\Debug\net5.0\OA.Repo.csproj.CoreCompi
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Repo\obj\Debug\net5.0\OA.Repo.dll
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Repo\obj\Debug\net5.0\ref\OA.Repo.dll
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Repo\obj\Debug\net5.0\OA.Repo.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Repo\obj\Debug\net5.0\OA.Repo.csproj.CopyComplete

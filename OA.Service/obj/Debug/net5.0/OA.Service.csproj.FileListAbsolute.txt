@@ -111,3 +111,4 @@ D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.csproj.Cor
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.dll
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\ref\OA.Service.dll
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Service\obj\Debug\net5.0\OA.Service.csproj.CopyComplete

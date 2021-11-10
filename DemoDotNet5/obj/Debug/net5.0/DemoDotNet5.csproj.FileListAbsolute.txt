@@ -1418,3 +1418,4 @@ D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Views\Home\Det
 D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Views\Customer\LoginCustomer.cshtml.g.cs
 D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Views\Customer\RegisterCustomer.cshtml.g.cs
 D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

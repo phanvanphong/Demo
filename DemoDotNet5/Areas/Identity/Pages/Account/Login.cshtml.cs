@@ -12,6 +12,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using OA.Data;
+using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using DemoDotNet5.ViewModel;
 
 namespace DemoDotNet5.Areas.Identity.Pages.Account
 {
@@ -21,14 +27,18 @@ namespace DemoDotNet5.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IConfiguration _configuration;
 
         public LoginModel(SignInManager<ApplicationUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<ApplicationUser> userManager)
+            UserManager<ApplicationUser> userManager,
+            IConfiguration configuration
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _configuration = configuration;
         }
 
         [BindProperty]
@@ -74,7 +84,7 @@ namespace DemoDotNet5.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/Admin");
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         
@@ -85,8 +95,30 @@ namespace DemoDotNet5.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    var claims = new[]
+                {
+                    new Claim(ClaimTypes.Email, Input.Email)
+                };
+                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSecurityKey"]));
+                    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                    var expriry = DateTime.Now.AddDays(Convert.ToInt32(_configuration["JwtExpriryInDays"]));
+
+                    var token = new JwtSecurityToken(
+                        _configuration["JwtIssuer"],
+                        _configuration["JwtAudience"],
+                        claims,
+                        expires: expriry,
+                        signingCredentials: creds
+                    );
+                    
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+
+                    //var userProfileViewModel = new UserProfileViewModel
+                    //{
+                    //   Token = new JwtSecurityTokenHandler().WriteToken(token)
+                    //};
+                    return RedirectToAction("Index", "Home", new UserProfileViewModel { Token = new JwtSecurityTokenHandler().WriteToken(token) });
+                    // return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {

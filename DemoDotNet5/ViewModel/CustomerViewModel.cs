@@ -22,5 +22,8 @@ namespace DemoDotNet5.ViewModel
         public string CreatedAt { get; set; }
         public int UserProfileId { get; set; }
         public string UserProfileFullName { get; set; }
+        
+        // Thêm thuộc tính Token
+        public string Token { get; set; }
     }
 }

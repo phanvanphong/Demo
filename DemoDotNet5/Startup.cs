@@ -1,4 +1,5 @@
 ﻿using DemoDotNet5.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,12 +8,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using OA.Data;
 using OA.Repo;
 using OA.Service;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace DemoDotNet5
@@ -30,7 +34,7 @@ namespace DemoDotNet5
         public void ConfigureServices(IServiceCollection services)
         {
             // Add DbContextPool thay vì DbContext để tăng hiệu năng
-            services.AddDbContextPool<EShopDbContext>(options =>
+            services.AddDbContext<EShopDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DemoDotNet5ContextConnection"))
             );
@@ -66,6 +70,22 @@ namespace DemoDotNet5
             // Setting Auto Mapper
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
+
+            // Setting JWT Token
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["JwtIssuer"],
+                        ValidAudience = Configuration["JwtAudience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSecurityKey"]))
+                    };
+                });
 
             // Setting Policy
             services.AddAuthorization(options =>

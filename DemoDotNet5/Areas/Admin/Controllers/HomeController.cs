@@ -24,6 +24,7 @@ namespace DemoDotNet5.Areas.Admin.Controllers
             _logger = logger;
         }
 
+        
         public IActionResult Index()
         {
             // Test log4net
