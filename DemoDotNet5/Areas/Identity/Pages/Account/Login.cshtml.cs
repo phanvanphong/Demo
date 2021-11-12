@@ -133,8 +133,9 @@ namespace DemoDotNet5.Areas.Identity.Pages.Account
 
 
                      _logger.LogInformation("User logged in.");
-                     return RedirectToAction("Index", "Home", token);
-                    // return LocalRedirect(returnUrl);
+                    // Trả về trang home và hiển thị token trên url
+                    // return RedirectToAction("Index", "Home", token);
+                    return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
                 {

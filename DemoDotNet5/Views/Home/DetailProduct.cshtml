@@ -92,7 +92,7 @@
                     <!--Check đã đăng nhập mới cho mua hàng -->
                     @if (customerId != null)
                     {
-                        <button type="submit"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                       <a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@detailProduct.Id"><button type="submit"><i class="fa fa-shopping-cart"></i> Add to cart</button></a>  
                     }
                     else
                     {

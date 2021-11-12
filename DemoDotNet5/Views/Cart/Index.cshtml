@@ -3,6 +3,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var categories = ViewBag.categories;
+    var carts = ViewBag.carts;
 }
 
 
@@ -26,38 +27,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if (carts != null)
+                                    {
+
+                                    @foreach (var cart in carts)
+                                    {
                                     <tr>
-                                        <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="assets\img\cart\cart17.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                        <td class="product-price">£65.00</td>
-                                        <td class="product_quantity"><input min="0" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£130.00</td>
-
-
+                                        <td class="product_remove"><a onclick="return confirm('Delete product ?')" asp-controller="Cart" asp-action="DeleteCart" asp-route-Id="@cart.Product.Id"><i class="fa fa-trash-o"></i></a></td>
+                                        <td class="product_thumb"><a href="#"><img src="~/images/@cart.Product.ImageName" alt=""></a></td>
+                                        <td class="product_name"><a href="#">@cart.Product.Name</a></td>
+                                        <td class="product-price">@cart.Product.Price</td>
+                                        <td class="product_quantity"><input name="updateQty" id="updateQty" min="0" max="100" value="@cart.Quantity" type="number"></td>
+                                        <td class="product_total"></td>
                                     </tr>
-
-                                    <tr>
-                                        <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="assets\img\cart\cart18.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbags justo</a></td>
-                                        <td class="product-price">£90.00</td>
-                                        <td class="product_quantity"><input min="0" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£180.00</td>
-
-
+                                    }
+                                    }
+                                    else {
+                                    <tr colspan="6">
+                                        Your cart is currently empty
                                     </tr>
-                                    <tr>
-                                        <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="assets\img\cart\cart19.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag elit</a></td>
-                                        <td class="product-price">£80.00</td>
-                                        <td class="product_quantity"><input min="0" max="100" value="1" type="number"></td>
-                                        <td class="product_total">£160.00</td>
-
-
-                                    </tr>
-
+                                    }
                                 </tbody>
                             </table>
                         </div>
@@ -111,3 +100,5 @@
     </div>
     <!--shopping cart area end -->
     </div>
+
+

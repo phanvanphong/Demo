@@ -76,32 +76,32 @@ namespace DemoDotNet5
             services.AddControllersWithViews();
 
 
-            // Setting JWT Token
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        // Validate Token
-                        // Nhà cung cấp
-                        ValidateIssuer = true,
-                        // Đối tượng được cấp
-                        ValidateAudience = true,
-                        // Thời gian sống
-                        ValidateLifetime = true,
-                        // Nhà cung cấp và đối tượng cấu hình ở appsettings.json
-                        ValidIssuer = Configuration["JwtIssuer"],
-                        ValidAudience = Configuration["JwtAudience"],
-                        // Cấu hình sinh Token
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSecurityKey"]))
-                    };
-                });
+            //// Setting JWT Token
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //    .AddJwtBearer(options =>
+            //    {
+            //        options.TokenValidationParameters = new TokenValidationParameters
+            //        {
+            //            // Validate Token
+            //            // Nhà cung cấp
+            //            ValidateIssuer = true,
+            //            // Đối tượng được cấp
+            //            ValidateAudience = true,
+            //            // Thời gian sống
+            //            ValidateLifetime = true,
+            //            // Nhà cung cấp và đối tượng cấu hình ở appsettings.json
+            //            ValidIssuer = Configuration["JwtIssuer"],
+            //            ValidAudience = Configuration["JwtAudience"],
+            //            // Cấu hình sinh Token
+            //            ValidateIssuerSigningKey = true,
+            //            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSecurityKey"]))
+            //        };
+            //    });
 
 
             // Setting Policy
