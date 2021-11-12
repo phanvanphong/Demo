@@ -18,6 +18,9 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using DemoDotNet5.ViewModel;
+using DemoDotNet5.Data;
+using OA.Repo;
+using OA.Service;
 
 namespace DemoDotNet5.Areas.Identity.Pages.Account
 {
@@ -27,18 +30,19 @@ namespace DemoDotNet5.Areas.Identity.Pages.Account
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-        private readonly IConfiguration _configuration;
+        private readonly ITokenService _tokenService;
 
         public LoginModel(SignInManager<ApplicationUser> signInManager, 
             ILogger<LoginModel> logger,
             UserManager<ApplicationUser> userManager,
-            IConfiguration configuration
+            RoleManager<IdentityRole> roleManager,
+            ITokenService tokenService
             )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-            _configuration = configuration;
+            _tokenService = tokenService;
         }
 
         [BindProperty]
@@ -95,29 +99,41 @@ namespace DemoDotNet5.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    var claims = new[]
-                {
-                    new Claim(ClaimTypes.Email, Input.Email)
-                };
-                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSecurityKey"]));
-                    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                    var expriry = DateTime.Now.AddDays(Convert.ToInt32(_configuration["JwtExpriryInDays"]));
+                    // Lấy thông tin người dùng qua email
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
+                    // Lấy tất cả các role của user
+                    var roles = await _userManager.GetRolesAsync(user);
+                    var claims = new List<Claim>
+                    {
+                        new Claim("Email", Input.Email),
+                        // Example xác thực quyền tự thêm
+                        // new Claim(ClaimTypes.Role, "ManagerStore"),
+                    };
 
-                    var token = new JwtSecurityToken(
-                        _configuration["JwtIssuer"],
-                        _configuration["JwtAudience"],
-                        claims,
-                        expires: expriry,
-                        signingCredentials: creds
-                    );
-                    
-                    _logger.LogInformation("User logged in.");
+                    // Lặp các quyền lấy được từ user và thêm vào danh sách các claim
+                    foreach (var role in roles)
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, role));
+                    }
+                    // Tạo token với phương thức CreateToken ở dịch vụ TokenService
+                    var token = _tokenService.CreateToken(claims);
+                
+                    //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSecurityKey"]));
+                    //var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                    //// Thời điểm token hết hạn
+                    //var expriry = DateTime.Now.AddDays(Convert.ToInt32(_configuration["JwtExpriryInDays"]));
 
-                    //var userProfileViewModel = new UserProfileViewModel
-                    //{
-                    //   Token = new JwtSecurityTokenHandler().WriteToken(token)
-                    //};
-                    return RedirectToAction("Index", "Home", new UserProfileViewModel { Token = new JwtSecurityTokenHandler().WriteToken(token) });
+                    //var token = new JwtSecurityToken(
+                    //    _configuration["JwtIssuer"],
+                    //    _configuration["JwtAudience"],
+                    //    claims,
+                    //    expires: expriry,
+                    //    signingCredentials: creds
+                    //);
+
+
+                     _logger.LogInformation("User logged in.");
+                     return RedirectToAction("Index", "Home", token);
                     // return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

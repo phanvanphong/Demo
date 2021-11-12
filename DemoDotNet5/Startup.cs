@@ -1,5 +1,7 @@
 ﻿using DemoDotNet5.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -53,6 +55,8 @@ namespace DemoDotNet5
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ITokenService, TokenService>();
+
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -71,21 +75,34 @@ namespace DemoDotNet5
             services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
 
+
             // Setting JWT Token
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
+                        // Validate Token
+                        // Nhà cung cấp
                         ValidateIssuer = true,
+                        // Đối tượng được cấp
                         ValidateAudience = true,
+                        // Thời gian sống
                         ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
+                        // Nhà cung cấp và đối tượng cấu hình ở appsettings.json
                         ValidIssuer = Configuration["JwtIssuer"],
                         ValidAudience = Configuration["JwtAudience"],
+                        // Cấu hình sinh Token
+                        ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSecurityKey"]))
                     };
                 });
+
 
             // Setting Policy
             services.AddAuthorization(options =>
@@ -105,7 +122,7 @@ namespace DemoDotNet5
                 options.AddPolicy("ManagerStore", policyBuilder =>
                 {
                     policyBuilder.RequireAuthenticatedUser();
-                    policyBuilder.RequireRole("Administrator", "||" , "ManagerStore");
+                    policyBuilder.RequireRole("Administrator", "||", "ManagerStore");
                 });
 
             });

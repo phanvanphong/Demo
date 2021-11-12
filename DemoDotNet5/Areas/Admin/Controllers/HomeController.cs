@@ -1,6 +1,7 @@
 ﻿using DemoDotNet5.Models;
 using log4net;
 using log4net.Config;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

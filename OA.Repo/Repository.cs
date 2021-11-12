@@ -1,11 +1,15 @@
 ﻿using DemoDotNet5.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using OA.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,11 +22,13 @@ namespace OA.Repo
         private readonly EShopDbContext context;
         // Khai báo thuộc tính entities có kiểu DBSet generic (chính là table ở CSDL)
         public DbSet<T> entities;
-        // string errorMessage = string.Empty;
-        public Repository(EShopDbContext context)
+        private readonly IConfiguration _configuration;
+        public Repository(EShopDbContext context,IConfiguration configuration)
         { 
             this.context = context;
             entities = context.Set<T>();
+            _configuration = configuration;
+
         }
         public async Task Delete(T entity)
         {

@@ -3,8 +3,10 @@ using OA.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +33,5 @@ namespace OA.Repo
         // Select dữ liệu
         Task<IEnumerable<T>> SelectData(Expression<Func<T, bool>> condition, Expression<Func<T, object>> orderby, params Expression<Func<T, object>>[] includes);
 
-       
     }
 }

@@ -42,33 +42,33 @@ namespace DemoDotNet5.Controllers
             if (data != null)
             {
                 // Lưu thông tin đăng nhập với Session
-                // HttpContext.Session.SetInt32("customerId", data.Id);
-                // HttpContext.Session.SetString("username", data.Username);
+                HttpContext.Session.SetInt32("customerId", data.Id);
+                HttpContext.Session.SetString("username", data.Username);
 
                 // Tạo ra claims list (tức là các thông tin đính kèm ở trong Token)
-                var claims = new[]
-                {
-                    new Claim(ClaimTypes.Name, data.Username),
-                    new Claim(ClaimTypes.Email, data.Email)
-                };
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSecurityKey"]));
-                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                var expriry = DateTime.Now.AddDays(Convert.ToInt32(_configuration["JwtExpriryInDays"]));
+                //var claims = new[]
+                //{
+                //    new Claim("Name", data.Username),
+                //    new Claim("Email", data.Email)
+                //};
+                //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSecurityKey"]));
+                //var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                //var expriry = DateTime.Now.AddDays(Convert.ToInt32(_configuration["JwtExpriryInDays"]));
 
-                var token = new JwtSecurityToken(
-                    _configuration["JwtIssuer"],
-                    _configuration["JwtAudience"],
-                    claims,
-                    expires: expriry,
-                    signingCredentials: creds
-                );
+                //var token = new JwtSecurityToken(
+                //    _configuration["JwtIssuer"],
+                //    _configuration["JwtAudience"],
+                //    claims,
+                //    expires: expriry,
+                //    signingCredentials: creds
+                //);
 
                 //Ok(new CustomerViewModel { Token = new JwtSecurityTokenHandler().WriteToken(token) });
                 //return RedirectToAction("Index", "Home");
 
-                return RedirectToAction("Index", "Home", new CustomerViewModel { Token = new JwtSecurityTokenHandler().WriteToken(token) });
+                return RedirectToAction("Index", "Home");
             }
-            return RedirectToAction("RegisterCustomer","Customer");
+            return RedirectToAction("LoginCustomer", "Customer");
         }
 
         public IActionResult RegisterCustomer()
