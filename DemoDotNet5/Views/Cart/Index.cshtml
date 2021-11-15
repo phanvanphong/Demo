@@ -23,29 +23,33 @@
                                         <th class="product_name">Product</th>
                                         <th class="product-price">Price</th>
                                         <th class="product_quantity">Quantity</th>
+                                        <th>Action</th>
                                         <th class="product_total">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @if (carts != null)
                                     {
-
-                                    @foreach (var cart in carts)
+                                       
+                                        @foreach (var cart in carts)
+                                        {
+                                            string txt_class = "quantity_" + cart.Product.Id;
+                                            <tr>
+                                                <td class="product_remove"><a onclick="return confirm('Delete product ?')" asp-controller="Cart" asp-action="DeleteCart" asp-route-Id="@cart.Product.Id"><i class="fa fa-trash-o"></i></a></td>
+                                                <td class="product_thumb"><a href="#"><img src="~/images/@cart.Product.ImageName" alt=""></a></td>
+                                                <td class="product_name"><a href="#">@cart.Product.Name</a></td>
+                                                <td class="product-price">@cart.Product.Price</td>
+                                                <td class="product_quantity"><input type="number" class="@txt_class" value="@cart.Quantity" /></td>
+                                                <td><a data-id="@cart.Product.Id" class="updateCart btn btn-primary">Update</a></td>
+                                                <td class="product_total"></td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
                                     {
-                                    <tr>
-                                        <td class="product_remove"><a onclick="return confirm('Delete product ?')" asp-controller="Cart" asp-action="DeleteCart" asp-route-Id="@cart.Product.Id"><i class="fa fa-trash-o"></i></a></td>
-                                        <td class="product_thumb"><a href="#"><img src="~/images/@cart.Product.ImageName" alt=""></a></td>
-                                        <td class="product_name"><a href="#">@cart.Product.Name</a></td>
-                                        <td class="product-price">@cart.Product.Price</td>
-                                        <td class="product_quantity"><input name="updateQty" id="updateQty" min="0" max="100" value="@cart.Quantity" type="number"></td>
-                                        <td class="product_total"></td>
-                                    </tr>
-                                    }
-                                    }
-                                    else {
-                                    <tr colspan="6">
-                                        Your cart is currently empty
-                                    </tr>
+                                        <tr colspan="6">
+                                            Your cart is currently empty
+                                        </tr>
                                     }
                                 </tbody>
                             </table>
@@ -99,6 +103,30 @@
         </form>
     </div>
     <!--shopping cart area end -->
-    </div>
+</div>
 
 
+<!-- Viết ajax gọi update -->
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+        $(".updateCart").click(function (event) {
+            event.preventDefault();
+            var quantity = $(".quantity_" + $(this).attr("data-id")).val();
+            console.log(quantity);
+            $.ajax({
+                type: "POST",
+                url:"@Url.Action("UpdateCart", "Cart")",
+                data: {
+                    productId: $(this).attr("data-id"),
+                    quantity:quantity
+                },
+                success: function (result) {
+                    window.location.href = '@Url.Action("Index","Cart")';
+                }
+            });
+        });
+    });
+    </script>
+
+}

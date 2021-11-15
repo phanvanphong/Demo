@@ -123,8 +123,8 @@ namespace DemoDotNet5.Controllers
         }
 
 
-
-        public IActionResult UpdateCart(int id, int quantity)
+        [HttpPost]
+        public IActionResult UpdateCart(int productId, int quantity)
         {
             var cart = HttpContext.Session.GetString("cart");
             if(cart != null)
@@ -134,7 +134,7 @@ namespace DemoDotNet5.Controllers
                 {
                     for(int i = 0; i < dataCart.Count; i++)
                     {
-                        if(dataCart[i].Product.Id == id)
+                        if(dataCart[i].Product.Id == productId)
                         {
                             dataCart[i].Quantity = quantity;
                         }
