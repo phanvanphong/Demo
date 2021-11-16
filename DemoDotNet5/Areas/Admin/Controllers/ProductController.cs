@@ -115,17 +115,18 @@ namespace DemoDotNet5.Areas.Admin.Controllers
                     var filePath = Path.Combine(_hostEnvironment.WebRootPath, "images", fileName);
                     using var fileStream = new FileStream(filePath, FileMode.Create);
                     obj.FileEdit.CopyTo(fileStream);
-                    product.Image = fileName;
+                    obj.ImageName = fileName;
                 }
                 // Nếu không thỳ vẫn lấy image cũ
                 else
                 {
-                    product.Image = fileName;
+                    obj.ImageName = fileName;
                 }
-                product.Name = obj.Name;
-                product.Price = obj.Price;
-                product.CategoryId = obj.CategoryId;
-                await _productService.Update(id,product.Name,product.Price,product.CategoryId,product.Image);
+                //product.Name = obj.Name;
+                //product.Price = obj.Price;
+                //product.CategoryId = obj.CategoryId;
+
+                await _productService.Update(id,obj.Name,obj.Price,obj.CategoryId,obj.ImageName);
 
                 return RedirectToAction("Index");
             }

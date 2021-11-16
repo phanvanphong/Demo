@@ -16,21 +16,16 @@ namespace DemoDotNet5.Controllers
 {
     public class CustomerController : Controller
     {
-        private readonly ICategoryService _categoryService;
         private readonly ICustomerService _customerService;
         private readonly IConfiguration _configuration;
-        public CustomerController(ICategoryService categoryService,ICustomerService customerService, IConfiguration configuration)
+        public CustomerController(ICustomerService customerService, IConfiguration configuration)
         {
-            _categoryService = categoryService;
             _customerService = customerService;
             _configuration = configuration;
 
         }
         public IActionResult LoginCustomer()
         {
-            var categories = _categoryService.GetList();
-            ViewBag.categories = categories;
-
             CustomerViewModel customerViewModel = new CustomerViewModel();
             return View(customerViewModel);
         }
@@ -73,9 +68,6 @@ namespace DemoDotNet5.Controllers
 
         public IActionResult RegisterCustomer()
         {
-            var categories = _categoryService.GetList();
-            ViewBag.categories = categories;
-
             CustomerViewModel customerViewModel = new CustomerViewModel();
             return View(customerViewModel);
         }

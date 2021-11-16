@@ -1,13 +1,12 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var categories = ViewBag.categories;
+    Layout = "~/Views/Shared/_Layout1.cshtml";
     var carts = ViewBag.carts;
 }
 
 
-<div class="col-lg-9 col-md-12">
+<div class="col-lg-12 col-md-12">
     <!--shopping cart area start -->
     <div class="shopping_cart_area">
         <form action="#">
@@ -18,30 +17,35 @@
                             <table>
                                 <thead>
                                     <tr>
-                                        <th class="product_remove">Delete</th>
+                                        <th>Delete</th>
                                         <th class="product_thumb">Image</th>
                                         <th class="product_name">Product</th>
                                         <th class="product-price">Price</th>
-                                        <th class="product_quantity">Quantity</th>
+                                        <th>Quantity</th>
                                         <th>Action</th>
                                         <th class="product_total">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @{ 
+                                        var total = 0;
+                                    }
                                     @if (carts != null)
                                     {
-                                       
+                                     
                                         @foreach (var cart in carts)
                                         {
                                             string txt_class = "quantity_" + cart.Product.Id;
+                                            var totalItem = cart.Product.Price * cart.Quantity;
+                                            total += totalItem;
                                             <tr>
                                                 <td class="product_remove"><a onclick="return confirm('Delete product ?')" asp-controller="Cart" asp-action="DeleteCart" asp-route-Id="@cart.Product.Id"><i class="fa fa-trash-o"></i></a></td>
                                                 <td class="product_thumb"><a href="#"><img src="~/images/@cart.Product.ImageName" alt=""></a></td>
                                                 <td class="product_name"><a href="#">@cart.Product.Name</a></td>
-                                                <td class="product-price">@cart.Product.Price</td>
+                                                <td class="product-price">@String.Format("{0:n0}", cart.Product.Price)</td>
                                                 <td class="product_quantity"><input type="number" class="@txt_class" value="@cart.Quantity" /></td>
-                                                <td><a data-id="@cart.Product.Id" class="updateCart btn btn-primary">Update</a></td>
-                                                <td class="product_total"></td>
+                                                <td><a data-id="@cart.Product.Id" class="updateCart checkout_btn btn btn-dark text-white">Update</a></td>
+                                                <td class="product_total">@String.Format("{0:n0}", totalItem) <sup>VNĐ</sup></td>
                                             </tr>
                                         }
                                     }
@@ -53,9 +57,6 @@
                                     }
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="cart_submit">
-                            <button type="submit">update cart</button>
                         </div>
                     </div>
                 </div>
@@ -79,20 +80,28 @@
                             <div class="coupon_inner">
                                 <div class="cart_subtotal">
                                     <p>Subtotal</p>
-                                    <p class="cart_amount">£215.00</p>
+                                    <p class="cart_amount">@String.Format("{0:n0}", total) <sup>VNĐ</sup></p>
                                 </div>
                                 <div class="cart_subtotal ">
                                     <p>Shipping</p>
-                                    <p class="cart_amount"><span>Flat Rate:</span> £255.00</p>
+                                    <p class="cart_amount">Freeship</p>
                                 </div>
                                 <a href="#">Calculate shipping</a>
 
                                 <div class="cart_subtotal">
                                     <p>Total</p>
-                                    <p class="cart_amount">£215.00</p>
+                                    <p class="cart_amount">@String.Format("{0:n0}", total) <sup>VNĐ</sup></p>
                                 </div>
                                 <div class="checkout_btn">
-                                    <a href="#">Proceed to Checkout</a>
+                                    <!-- Check xem có sản phẩm nào trong giỏ hàng chưa-->
+                                    @if (carts == null)
+                                    {
+                                        <a asp-controller="Home" asp-action="Index">Back to Shopping Cart</a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Checkout" asp-action="Index">Proceed to Checkout</a>
+                                    }
                                 </div>
                             </div>
                         </div>

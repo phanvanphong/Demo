@@ -60,6 +60,16 @@ namespace OA.Repo
             entities.Add(entity);
             await context.SaveChangesAsync();
         }
+        public async Task<T> InsertReturn(T entity)
+        {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("entity");
+            }
+            entities.Add(entity);
+            await context.SaveChangesAsync();
+            return entity;
+        }
 
         public void Remove(T entity)
         {

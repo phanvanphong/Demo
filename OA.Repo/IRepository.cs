@@ -17,6 +17,7 @@ namespace OA.Repo
         IQueryable<T> GetAll();
         Task<T> Get(long id);
         Task Insert(T entity);
+        Task<T> InsertReturn(T entity);
         Task Update(T entity);
         Task Delete(T entity);
         Task<int> Count();

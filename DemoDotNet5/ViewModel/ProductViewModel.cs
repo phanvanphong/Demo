@@ -11,7 +11,7 @@ namespace DemoDotNet5.ViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
         public string ImageName { get; set; }
         public IFormFile FileUpload { get; set; }
         public IFormFile FileEdit { get; set; }

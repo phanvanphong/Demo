@@ -20,6 +20,8 @@ namespace DemoDotNet5.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

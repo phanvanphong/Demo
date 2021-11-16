@@ -36,6 +36,7 @@ namespace OA.Data
         public string CreatedAt { get; private set; }
         public int UserProfileId { get; private set; }
         public UserProfile UserProfile { get; private set; }
+        public ICollection<Order> Orders { get; private set; }
 
 
         public void Modify(string username, string password, string fullname, string address, string email, string createdat, int userprofileid)

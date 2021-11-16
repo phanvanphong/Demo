@@ -2,13 +2,13 @@
 
 @{
     ViewData["Title"] = "DetailsProduct";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
     var detailProduct = ViewBag.detailProductViewModel;
     var relatedProducts = ViewBag.relatedProductsViewModel;
     var customerId = Context.Session.GetInt32("customerId");
 }
 
-<div class="col-lg-9 col-md-12">
+<div class="col-lg-12 col-md-12">
     <div class="row">
         <div class="col-lg-6 col-md-6">
             <div class="product_tab sidebar fix">
@@ -26,41 +26,41 @@
                         </div>
                     </div>
                     @*<div class="tab-pane fade" id="p_tab2" role="tabpanel">
-                        <div class="modal_img">
-                            <a href="#"><img src="~/site/assets\img\product\productbig1.jpg" alt=""></a>
-                            <div class="img_icone">
-                                <img src="~/site/assets\img\cart\span-new.png" alt="">
-                            </div>
-                            <div class="view_img">
-                                <a class="large_view" href="assets\img\product\productbig1.jpg"><i class="fa fa-search-plus"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="p_tab3" role="tabpanel">
-                        <div class="modal_img">
-                            <a href="#"><img src="~/site/assets\img\product\productbig2.jpg" alt=""></a>
-                            <div class="img_icone">
-                                <img src="~/site/assets\img\cart\span-new.png" alt="">
-                            </div>
-                            <div class="view_img">
-                                <a class="large_view" href="~site/assets\img\product\productbig2.jpg"> <i class="fa fa-search-plus"></i></a>
+                            <div class="modal_img">
+                                <a href="#"><img src="~/site/assets\img\product\productbig1.jpg" alt=""></a>
+                                <div class="img_icone">
+                                    <img src="~/site/assets\img\cart\span-new.png" alt="">
+                                </div>
+                                <div class="view_img">
+                                    <a class="large_view" href="assets\img\product\productbig1.jpg"><i class="fa fa-search-plus"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>*@
+                        <div class="tab-pane fade" id="p_tab3" role="tabpanel">
+                            <div class="modal_img">
+                                <a href="#"><img src="~/site/assets\img\product\productbig2.jpg" alt=""></a>
+                                <div class="img_icone">
+                                    <img src="~/site/assets\img\cart\span-new.png" alt="">
+                                </div>
+                                <div class="view_img">
+                                    <a class="large_view" href="~site/assets\img\product\productbig2.jpg"> <i class="fa fa-search-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
                 </div>
                 @*<div class="product_tab_button">
-                    <ul class="nav" role="tablist">
-                        <li>
-                            <a class="active" data-toggle="tab" href="#p_tab1" role="tab" aria-controls="p_tab1" aria-selected="false"><img src="~/site/assets\img\cart\cart.jpg" alt=""></a>
-                        </li>
-                        <li>
-                            <a data-toggle="tab" href="#p_tab2" role="tab" aria-controls="p_tab2" aria-selected="false"><img src="~/site/assets\img\cart\cart2.jpg" alt=""></a>
-                        </li>
-                        <li>
-                            <a data-toggle="tab" href="#p_tab3" role="tab" aria-controls="p_tab3" aria-selected="false"><img src="~/site/assets\img\cart\cart4.jpg" alt=""></a>
-                        </li>
-                    </ul>
-                </div>*@
+                        <ul class="nav" role="tablist">
+                            <li>
+                                <a class="active" data-toggle="tab" href="#p_tab1" role="tab" aria-controls="p_tab1" aria-selected="false"><img src="~/site/assets\img\cart\cart.jpg" alt=""></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#p_tab2" role="tab" aria-controls="p_tab2" aria-selected="false"><img src="~/site/assets\img\cart\cart2.jpg" alt=""></a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#p_tab3" role="tab" aria-controls="p_tab3" aria-selected="false"><img src="~/site/assets\img\cart\cart4.jpg" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>*@
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
@@ -81,8 +81,8 @@
                 </div>
 
                 <div class="content_price mb-15">
-                    <span>@detailProduct.Price <sup>VNĐ</sup></span>
-                    <span class="old-price">450000</span>
+                    <span>@String.Format("{0:n0}", detailProduct.Price) <sup>VNĐ</sup></span>
+                    <span class="old-price">450,000</span>
                 </div>
                 <div class="box_quantity mb-20">
                     <form action="#">
@@ -92,13 +92,13 @@
                     <!--Check đã đăng nhập mới cho mua hàng -->
                     @if (customerId != null)
                     {
-                       <a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@detailProduct.Id"><button type="submit"><i class="fa fa-shopping-cart"></i> Add to cart</button></a>  
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@detailProduct.Id"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                     }
                     else
                     {
-                        <button onclick="return confirm('Please login to continue shopping')"><i class="fa fa-shopping-cart"></i> Add to cart</button>
+                        <a asp-controller="Customer" asp-action="LoginCustomer"><i class="fa fa-shopping-cart"></i> Login to buy</a>
                     }
-                    <a href="#" title="add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                    @*<a href="#" title="add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>*@
                 </div>
                 <div class="product_d_size mb-20">
                     <label for="group_1">size</label>
@@ -246,29 +246,29 @@
             <div class="product_active owl-carousel">
                 @foreach (var item in relatedProducts)
                 {
-                <div class="col-lg-3">
-                    <div class="single_product">
-                        <div class="product_thumb">
-                            <a asp-controller="Home" asp-action="DetailProduct" asp-route-Id="@item.Id"><img src="~/images/@item.ImageName" alt=""></a>
-                            <div class="img_icone">
-                                <img src="~/site/assets\img\cart\span-new.png" alt="">
+                    <div class="col-lg-3">
+                        <div class="single_product">
+                            <div class="product_thumb">
+                                <a asp-controller="Home" asp-action="DetailProduct" asp-route-Id="@item.Id"><img src="~/images/@item.ImageName" alt=""></a>
+                                <div class="img_icone">
+                                    <img src="~/site/assets\img\cart\span-new.png" alt="">
+                                </div>
+                                <div class="product_action">
+                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                </div>
                             </div>
-                            <div class="product_action">
-                                <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <div class="product_content">
+                                <span class="product_price">@item.Price <sup>VNĐ</sup></span>
+                                <h3 class="product_title"><a href="single-product.html">@item.Name</a></h3>
                             </div>
-                        </div>
-                        <div class="product_content">
-                            <span class="product_price">@item.Price <sup>VNĐ</sup></span>
-                            <h3 class="product_title"><a href="single-product.html">@item.Name</a></h3>
-                        </div>
-                        <div class="product_info">
-                            <ul>
-                                <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
-                            </ul>
+                            <div class="product_info">
+                                <ul>
+                                    <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                    <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
             </div>
         </div>

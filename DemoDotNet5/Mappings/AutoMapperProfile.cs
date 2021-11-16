@@ -36,7 +36,8 @@ namespace DemoDotNet5.Mappings
                 dest.UserProfileFullName,
                 opt => opt.MapFrom(src => src.UserProfile.FirstName + " " + src.UserProfile.LastName)
             );
-
+            CreateMap<Order, OrderViewModel>().ReverseMap();
+            CreateMap<OrderDetail, OrderDetailViewModel>().ReverseMap();
         }
     }
 }

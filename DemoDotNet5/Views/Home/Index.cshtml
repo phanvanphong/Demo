@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="product_content">
-                                <span class="product_price">@item.Price</span>
+                                <span class="product_price">@String.Format("{0:n0}", item.Price) <sup>VNĐ</sup></span>
                                 <h3 class="product_title"><a href="single-product.html">@item.Name</a></h3>
                             </div>
                             <div class="product_info">
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="product_content">
-                                <span class="product_price">@item.Price <sup>VNĐ</sup></span>
+                                <span class="product_price">@String.Format("{0:n0}", item.Price) <sup>VNĐ</sup></span>
                                 <h3 class="product_title"><a href="single-product.html">@item.Name</a></h3>
                             </div>
                             <div class="product_info">

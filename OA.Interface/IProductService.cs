@@ -12,8 +12,8 @@ namespace OA.Service
         // public IQueryable<Product> GetList();
         public Task<Product> GetId(int id);
         public Task<int> Count();
-        public Task Insert(string name, string price, int categoryId, string image);
-        public Task Update(int id, string name, string price, int categoryId, string image);
+        public Task Insert(string name, double price, int categoryId, string image);
+        public Task Update(int id, string name, double price, int categoryId, string image);
         public Task Delete(int id);
         public Task<Pager<Product>> GetProducts(string search, int currentPage, int pageSize);
         public Task<IEnumerable<Product>> FeaturedProducts();

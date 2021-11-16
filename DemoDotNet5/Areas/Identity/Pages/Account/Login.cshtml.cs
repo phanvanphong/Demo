@@ -24,7 +24,7 @@ using OA.Service;
 
 namespace DemoDotNet5.Areas.Identity.Pages.Account
 {
-    [AllowAnonymous]
+    [AllowAnonymous] // Cho phép truy cập mà không cần đăng nhập
     public class LoginModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;

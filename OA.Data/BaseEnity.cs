@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace OA.Data
 {
     public class BaseEnity
-    { 
+    {   
+        [Key]
         public int Id { get; set; }
     }
 }

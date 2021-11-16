@@ -1787,7 +1787,7 @@
 	margin-left: 21px;
 }
 .box_quantity a {
-	width: 30px;
+	width: 120px;
 	height: 30px;
 	background: #00bba6;
 	display: block;
@@ -1795,7 +1795,7 @@
 	text-align: center;
 	line-height: 32px;
 	color: #fff;
-	border-radius: 50%;
+	border-radius: 15px;
 	margin-left: 20px;
 }
 .box_quantity button:hover,.box_quantity a:hover{
@@ -2645,7 +2645,6 @@
 .order-notes textarea {
 	border: 1px solid #e5e5e5;
 	border-radius: 0;
-	height: 45px;
 	max-width: 100%;
 	padding: 0 0 0 10px;
 	background: none;

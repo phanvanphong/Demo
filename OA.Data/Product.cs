@@ -11,7 +11,7 @@ namespace OA.Data
 {
     public class Product : BaseEnity
     {
-        public Product(string name, string price, int categoryId, string image)
+        public Product(string name, double price, int categoryId, string image)
         {
             Name = name;
             Price = price;
@@ -20,23 +20,24 @@ namespace OA.Data
         }
 
         [Required]
-        public string Name { get; set; }
+        public string Name { get; private  set; }
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Price must be greater than 0")]
-        public string Price { get; set; }
+        public double Price { get; private set; }
         [Required]
-        public string Image { get; set; }
+        public string Image { get; private set; }
         //[ForeignKey("Category")]
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public int CategoryId { get; private set; }
+        public Category Category { get; private set; }
         
-        public void Modify(string name, string price, int categoryId, string image)
+        public void Modify(string name, double price, int categoryId, string image)
         {
             Name = name;
             Price = price;
             CategoryId = categoryId;
             Image = image;
         }
+
          
     }
 }

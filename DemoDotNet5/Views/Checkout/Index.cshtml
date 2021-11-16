@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+    var carts = ViewBag.carts;
+    var customerViewModel = ViewBag.customerViewModel;
+}
+
+<div class="Checkout_section">
+    <div class="row">
+        <div class="col-12">
+            <div class="user-actions mb-20">
+                <h3>
+                    <i class="fa fa-file-o" aria-hidden="true"></i>
+                    Returning home?
+                    <a class="Returning" asp-controller="Home" asp-action="Index">Click here to home</a>
+
+                </h3>
+            </div>
+            <div class="user-actions mb-20">
+                <h3>
+                    <i class="fa fa-file-o" aria-hidden="true"></i>
+                    Returning my cart?
+                    <a class="Returning" asp-controller="Cart" asp-action="Index">Click here to my cart</a>
+
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="checkout_form">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <form asp-action="PostCheckout" method="post">
+                    <h3>Billing Details</h3>
+                    <div class="row">
+                        <input type="hidden" name="customerId" value="@customerViewModel.Id" />
+                        <div class="col-lg-6 mb-30">
+                            <label>Full Name<span>*</span></label>
+                            <input type="text" value="@customerViewModel.Fullname" disabled>
+                        </div>
+                        <div class="col-6 mb-30">
+                            <label>Phone <span>*</span></label>
+                            <input type="text" value="0909009009" disabled>
+                        </div>
+                        <div class="col-lg-12 mb-30">
+                            <label>Email <span>*</span></label>
+                            <input type="text" value="@customerViewModel.Email" disabled>
+                        </div>
+                        <div class="col-12 mb-30">
+                            <label>Address <span>*</span></label>
+                            <input type="text" name="Address" value="@customerViewModel.Address" required>
+                        </div>
+                        <div class="col-12">
+                            <div class="order-notes">
+                                <label for="order_note">Order Notes</label>
+                                <textarea placeholder="Enter notes for shipper ...." name="notes" rows="3" cols="50" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order_button">
+                        <button type="submit">Proceed to PayPal</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <form action="#">
+                    <h3>Your order</h3>
+                    <div class="order_table table-responsive mb-30">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var total = 0;
+                                }
+                                @foreach (var cart in carts)
+                                {
+                                    total += @cart.Quantity * @cart.Product.Price;
+                                    var totalItem = @cart.Quantity * @cart.Product.Price;
+                                    <tr>
+                                        <td>@cart.Product.Name</td>
+                                        <td>@cart.Quantity</td>
+                                        <td>@String.Format("{0:n0}", cart.Product.Price)</td>
+                                        <td>@String.Format("{0:n0}", totalItem) <sup>VNĐ</sup></td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="3">Cart Subtotal</th>
+                                    <td>@String.Format("{0:n0}", total) <sup>VNĐ</sup></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="3">Shipping</th>
+                                    <td><strong>Freeship</strong></td>
+                                </tr>
+                                <tr class="order_total">
+                                    <th colspan="3">Order Total</th>
+                                    <td><strong>@String.Format("{0:n0}", total) <sup>VNĐ</sup></strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="payment_method">
+                        <div class="panel-default">
+                            <input id="payment" name="check_method" type="radio" data-target="createp_account">
+                            <label for="payment" data-toggle="collapse" data-target="#method" aria-controls="method">Payment on delivery ?</label>
+
+                            <div id="method" class="collapse one" data-parent="#accordion">
+                                <div class="card-body1">
+                                    <p>Please check the item before paying.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel-default">
+                            <input id="payment_defult" name="check_method" type="radio" data-target="createp_account">
+                            <label for="payment_defult" data-toggle="collapse" data-target="#collapsedefult" aria-controls="collapsedefult">Payment by Bank card ?  <img src="~/site/assets\img\visha\papyel.png" alt=""></label>
+
+                            <div id="collapsedefult" class="collapse one" data-parent="#accordion">
+                                <div class="card-body1">
+                                    <p>We currently do not support payment by Bank card </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

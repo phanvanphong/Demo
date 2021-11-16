@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "ShowOrderDetail";
+    Layout = "~/Areas/Admin/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Order Detail</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Order Number:@ViewBag.orderNumber - Total List: @ViewBag.totalItems</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Image</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>TotalItem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ 
+                                    var total = 0;
+                                }
+                                @foreach (var obj in Model)
+                                {
+                                    total += obj.Quantity * obj.Price;
+                                    var totalItem = obj.Quantity * obj.Price;
+                                    <tr>
+                                        <td>@obj.ProductName</td>
+                                        <td>
+                                            <img src="~/images/@obj.ProductImage" alt="" width="100" height="100" asp-append-version="true" />
+                                        </td>
+                                        <td>@obj.Quantity</td>
+                                        <td>@obj.Price</td>
+                                        <td>@totalItem</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <th colspan="3">Total</th>
+                                <td>@total</td>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+
+

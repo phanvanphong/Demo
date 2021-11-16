@@ -1,0 +1,62 @@
+﻿@{
+    var categories = ViewBag.categories;
+}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Coron - Fashion eCommerce Bootstrap4 Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/site/assets/img/favicon.png">
+
+    <!-- all css here -->
+    <link rel="stylesheet" href="~/site/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/site/assets/css/plugin.css">
+    <link rel="stylesheet" href="~/site/assets/css/bundle.css">
+    <link rel="stylesheet" href="~/site/assets/css/style.css">
+    <link rel="stylesheet" href="~/site/assets/css/responsive.css">
+    <script src="~/site/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+    <!-- View Header -->
+    <partial name="_Header" />
+
+    <div class="container">
+                <main role="main" class="pb-3">
+                    <!--pos home section-->
+                    <div class=" pos_home_section">
+                        <div class="row pos_home">
+
+
+                            @RenderBody()
+
+
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <partial name="_Footer" />
+    </footer>
+    <!-- modal area end -->
+    <!-- all js here -->
+    <script src="~/site/assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="~/site/assets/js/popper.js"></script>
+    <script src="~/site/assets/js/bootstrap.min.js"></script>
+    <script src="~/site/assets/js/ajax-mail.js"></script>
+    <script src="~/site/assets/js/plugins.js"></script>
+    <script src="~/site/assets/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+

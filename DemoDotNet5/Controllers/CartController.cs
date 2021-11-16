@@ -14,12 +14,10 @@ namespace DemoDotNet5.Controllers
 {
     public class CartController : Controller
     {
-        private readonly ICategoryService _categoryService;
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
-        public CartController(ICategoryService categoryService, IProductService productService,IMapper mapper)
+        public CartController(IProductService productService,IMapper mapper)
         {
-            _categoryService = categoryService;
             _productService = productService;
             _mapper = mapper;
         }
@@ -27,9 +25,6 @@ namespace DemoDotNet5.Controllers
 
         public IActionResult Index()
         {
-            var categories = _categoryService.GetList();
-            ViewBag.categories = categories;
-
             var cart = HttpContext.Session.GetString("cart");
             if (cart != null)
             {

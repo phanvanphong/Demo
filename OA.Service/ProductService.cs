@@ -35,13 +35,13 @@ namespace OA.Service
             return await _productRepository.Count();
         }
 
-        public async Task Insert(string name, string price, int categoryId, string image)
+        public async Task Insert(string name, double price, int categoryId, string image)
         {
             var product = new Product(name, price, categoryId, image);
             await _productRepository.Insert(product);
         }
 
-        public async Task Update(int id, string name, string price, int categoryId, string image)
+        public async Task Update(int id, string name, double price, int categoryId, string image)
         {
             var product = await _productRepository.Get(id);
             product.Modify(name, price, categoryId, image);
@@ -57,13 +57,13 @@ namespace OA.Service
 
         public async Task<IEnumerable<Product>> FeaturedProducts()
         {
-            var newProducts = await _productRepository.SelectData(p => p.Name != "", p => p.Id ,c => c.Category);
+            var newProducts = await _productRepository.SelectData(p => p.Price < 300000, p => p.Id ,c => c.Category);
             return newProducts;
         }
 
         public async Task<IEnumerable<Product>> NewProducts()
         {
-            var newProducts = await _productRepository.SelectData(p => p.Name != "", p => p.Id ,c => c.Category);
+            var newProducts = await _productRepository.SelectData(p => p.Price > 300000, p => p.Id ,c => c.Category);
             return newProducts;
         }
 

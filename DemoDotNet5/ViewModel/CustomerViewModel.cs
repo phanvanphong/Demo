@@ -21,8 +21,10 @@ namespace DemoDotNet5.ViewModel
         public string Email { get; set; }
         public string CreatedAt { get; set; }
         public int UserProfileId { get; set; }
+        public ICollection<OrderViewModel> Orders { get; set; }
+
         public string UserProfileFullName { get; set; }
-        
+
         // Thêm thuộc tính Token
         public string Token { get; set; }
     }

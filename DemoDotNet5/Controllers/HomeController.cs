@@ -63,10 +63,6 @@ namespace DemoDotNet5.Controllers
         // Chi tiết sản phẩm
         public async Task<IActionResult> DetailProduct(int id)
         {
-            // Danh sách danh mục 
-            var categories = _categoryService.GetList();
-            ViewBag.categories = categories;
-
             // Chi tiết sản phẩm
             var detailProduct = await _productService.GetId(id);
             var detailProductViewModel = _mapper.Map<ProductViewModel>(detailProduct);

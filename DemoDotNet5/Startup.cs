@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using OA.Data;
+using OA.Interface;
 using OA.Repo;
 using OA.Service;
 using System;
@@ -40,6 +41,7 @@ namespace DemoDotNet5
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DemoDotNet5ContextConnection"))
             );
+
             services.AddDefaultIdentity<ApplicationUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
@@ -56,6 +58,8 @@ namespace DemoDotNet5
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ITokenService, TokenService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IOrderDetailService, OrderDetailService>();
 
 
             services.AddControllersWithViews();
@@ -66,7 +70,7 @@ namespace DemoDotNet5
             services.AddSession(options =>
             {
                 // Phiên hết hạn (Session Time out)
-                options.IdleTimeout = TimeSpan.FromSeconds(100);
+                options.IdleTimeout = TimeSpan.FromHours(1);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
