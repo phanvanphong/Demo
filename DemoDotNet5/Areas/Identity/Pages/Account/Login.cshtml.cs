@@ -137,6 +137,12 @@ namespace DemoDotNet5.Areas.Identity.Pages.Account
                     // return RedirectToAction("Index", "Home", token);
                     return LocalRedirect(returnUrl);
                 }
+                // Nếu thất bại thỳ ném ra thông báo sai tài khoản hoặc mật khẩu
+                else
+                {
+                    ViewData["message"] = "Please check your username or password !";
+                }
+
                 if (result.RequiresTwoFactor)
                 {
                     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });

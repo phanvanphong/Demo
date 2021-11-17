@@ -1,6 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@{
     var featuredProducts = ViewBag.featuredProductsViewModel;
     var newProducts = ViewBag.newProductsViewModel;
+    var customerId = Context.Session.GetInt32("customerId");
 }
 <div class="col-lg-9 col-md-12">
     <!--banner slider start-->
@@ -53,7 +55,14 @@
                                     <img src="~/site/assets\img\cart\span-new.png" alt="">
                                 </div>
                                 <div class="product_action">
-                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    @if (customerId != null)
+                                    {
+                                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@item.Id"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-controller="Customer" asp-action="LoginCustomer"> <i class="fa fa-shopping-cart"></i> Login to buy</a>
+                                    }
                                 </div>
                             </div>
                             <div class="product_content">

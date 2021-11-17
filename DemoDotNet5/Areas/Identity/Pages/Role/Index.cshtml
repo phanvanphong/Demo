@@ -41,7 +41,8 @@
                         <table class="table table-hover text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>Category Name</th>
+                                    <th>Role Name</th>
+                                    <th>Claims</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -50,6 +51,12 @@
                                     {
                                         <tr>
                                             <td>@role.Name</td>
+                                            <td>
+                                                @foreach(var claim in role.Claims)
+                                                {
+                                                    <small>@claim</small><br />
+                                                }
+                                            </td>
                                             <td>
                                                 <a asp-page="./Edit" asp-route-roleId="@role.Id" class="btn btn-success">Edit</a>
                                                 <a onclick="return confirm('Are you sure ?')" asp-page="./Delete" asp-route-roleId="@role.Id" class="btn btn-danger">Delete</a>

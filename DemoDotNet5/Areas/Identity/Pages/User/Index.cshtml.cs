@@ -18,27 +18,35 @@ namespace DemoDotNet5.Areas.Identity.Pages.User
         {
             _useManager = userManager;
         }
-        // Tạo lớp UserAndRole kế thừa từ lớp ApplicationUser và tạo thêm thuộc tính mới là RollNames
-        // để lấy tên Role hiển thị ra danh sách
+
+        // Tạo lớp UserAndRole kế thừa từ lớp ApplicationUser (có tất cả các thuộc tính của ApplicationUser)
+        // và bổ sung thêm thuộc tính là RollNames để lấy tên các role của từng User hiển thị ra danh sách
         public class UserAndRole : ApplicationUser
         {
             public string RollNames { get; set; }
         }
-        public List<UserAndRole> users { set; get; }
+
+        // Tạo thuộc tính Users có kiểu là danh sách UserAndRole
+        public List<UserAndRole> Users { set; get; }
+
 
         public async Task<IActionResult> OnGet()
         {
-          var query =  _useManager.Users.OrderBy(u => u.UserName);
-          var query1 = query.Select(u => new UserAndRole()
-            {
-                Id = u.Id,
-                UserName = u.UserName
-            });
+            // Lấy danh sách User, gán giá trị từng thuộc tính trong class UserAndRole và sắp xếp thep Username
+            var query =  _useManager.Users.Select(u => new UserAndRole() { 
+                            Id = u.Id,
+                            UserName = u.UserName
+                     }).OrderBy(u => u.UserName);
+            
+            // Thực hiện câu truy vấn => trả về danh sách User
+            Users =  query.ToList();
 
-            users =  query1.ToList();
-            foreach(var user in users)
-            {
+            // Thực hiện vòng lặp 
+            foreach(var user in Users)
+            {   
+                // Lấy lại danh sách các role tương ứng với user
                 var roles = await _useManager.GetRolesAsync(user);
+                // Gán vào thuộc tính RollNames và nối với nhau bằng dấu ,
                 user.RollNames = string.Join(",", roles);
             }
             return Page();

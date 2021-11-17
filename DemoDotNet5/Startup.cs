@@ -119,6 +119,8 @@ namespace DemoDotNet5
                     // Có vai trò là Administrator
                     policyBuilder.RequireRole("Administrator");
                     // Notes : Claim tức là những tính chất của Role
+                    // Example: Role là bằng lái xe B2 vì có bằng lái xe B2 sẽ được lái xe
+                    // Claims là những thông tin có trên bằng lái như họ tên, ngày sinh, ...
 
                 });
 

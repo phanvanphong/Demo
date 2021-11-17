@@ -31,8 +31,7 @@ namespace OA.Repo
         
         Task<Pager<T>> Paging(Expression<Func<T, bool>> condition, int currentPage, int pageSize, params Expression<Func<T, object>>[] includes);
 
-        // Select dữ liệu
-        Task<IEnumerable<T>> SelectData(Expression<Func<T, bool>> condition, Expression<Func<T, object>> orderby, params Expression<Func<T, object>>[] includes);
+       
 
     }
 }

@@ -86,3 +86,4 @@ D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.dll
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\ref\OA.Interface.dll
 D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.pdb
+D:\ASPNETCore\DemoDotNet5\Demo\OA.Interface\obj\Debug\net5.0\OA.Interface.csproj.CopyComplete

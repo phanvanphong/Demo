@@ -31,21 +31,24 @@ namespace DemoDotNet5.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string search, int currentPage, int pageSize)
         {
             // Danh sách sản phẩm mới
-            var newProducts = await _productService.NewProducts();
+            var dataNewProducs = await _productService.NewProducts(search, currentPage, pageSize);
+            var newProducts = dataNewProducs.Items;
             var newProductsViewModel = _mapper.Map<List<ProductViewModel>>(newProducts);
             ViewBag.newProductsViewModel = newProductsViewModel;
 
             // Danh sách sản phẩm nổi bật
-            var featuredProducts = await _productService.FeaturedProducts();
+            var dataFeaturedProducts = await _productService.FeaturedProducts(search,currentPage,pageSize);
+            var featuredProducts = dataFeaturedProducts.Items;
             var featuredProductsViewModel = _mapper.Map<List<ProductViewModel>>(featuredProducts);
             ViewBag.featuredProductsViewModel = featuredProductsViewModel;
 
             // Danh sách danh mục 
             var categories = _categoryService.GetList();
-            ViewBag.categories = categories;
+            var categoriesViewModel = _mapper.Map<List<CategoryViewModel>>(categories);
+            ViewBag.categoriesViewModel = categoriesViewModel;
            
 
             // Test log4net
@@ -61,7 +64,7 @@ namespace DemoDotNet5.Controllers
         }
 
         // Chi tiết sản phẩm
-        public async Task<IActionResult> DetailProduct(int id)
+        public async Task<IActionResult> DetailProduct(int id, int currentPage, int pageSize)
         {
             // Chi tiết sản phẩm
             var detailProduct = await _productService.GetId(id);
@@ -69,7 +72,8 @@ namespace DemoDotNet5.Controllers
             ViewBag.detailProductViewModel = detailProductViewModel;
 
             // Sản phẩm cùng loại
-            var relatedProducts = await _productService.RelatedProducts(detailProduct.CategoryId);
+            var dataRelatedProducts = await _productService.RelatedProducts(detailProduct.CategoryId, currentPage,pageSize);
+            var relatedProducts = dataRelatedProducts.Items;
             var relatedProductsViewModel = _mapper.Map<List<ProductViewModel>>(relatedProducts);
             ViewBag.relatedProductsViewModel = relatedProductsViewModel;
             return View();
@@ -77,13 +81,19 @@ namespace DemoDotNet5.Controllers
 
 
         // Sản phẩm liên quan
-        public async Task<IActionResult> RelatedProducts(int id)
+        public async Task<IActionResult> RelatedProducts(int id, int currentPage, int pageSize)
         {
-            var relatedProducts = await _productService.RelatedProducts(id);
+            var categories = _categoryService.GetList();
+            var categoriesViewModel = _mapper.Map<List<CategoryViewModel>>(categories);
+            ViewBag.categoriesViewModel = categoriesViewModel;
+
+            var dataRelatedProducts = await _productService.RelatedProducts(id,currentPage,pageSize);
+            var relatedProducts = dataRelatedProducts.Items;
             var relatedProductsViewModel = _mapper.Map<List<ProductViewModel>>(relatedProducts);
             ViewBag.relatedProductsViewModel = relatedProductsViewModel;
             return View();
         }
+
 
 
         public IActionResult Privacy()

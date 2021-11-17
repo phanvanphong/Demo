@@ -598,6 +598,8 @@
     color:#e84c3d;
 }
 .sidebar_widget.catrgorie  ul li {
+	color:white;
+	padding-bottom:10px;
 	position: relative;
 }
 .categorie_sub {

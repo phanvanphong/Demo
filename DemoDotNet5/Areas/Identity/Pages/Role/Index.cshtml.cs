@@ -18,12 +18,40 @@ namespace DemoDotNet5.Areas.Identity.Pages.Role
         {
             _roleManager = roleManager;
         }
-        // Tạo ra thuộc tính roles có kiểu là danh sách các IdentityRole
-        public List<IdentityRole> roles { set; get; }
+    
+        // Tạo lớp RoleModel kế thừa IdentityRole bổ sung thuộc tính là mảng Claims
+        // nhằm hiển thị thêm các Claims của Role
+        public class RoleModel : IdentityRole
+        {
+            public string[] Claims { get; set; }
+        }
+
+        // Tạo ra thuộc tính roles có kiểu là danh sách các RoleModel
+        public List<RoleModel> roles { set; get; }
+
         // Phương thức bất đồng bộ OnGet thực hiện lấy tên của các Roles và sắp xếp theo tên
         public async Task<IActionResult> OnGet()
         {
-            roles = await _roleManager.Roles.OrderByDescending(r=>r.Name).ToListAsync();
+            // Lấy ra danh sách role trong IdentityRole
+            var rolesData = await _roleManager.Roles.OrderByDescending(r=>r.Name).ToListAsync();
+            // Khởi tạo danh sách roleModel
+            roles = new List<RoleModel>();
+            foreach(var item in rolesData)
+            {
+                // Lấy claim của từng role
+                var claims = await _roleManager.GetClaimsAsync(item);
+                // Trả về mảng gồm các chuỗi tên claim và giá trị của claim
+                var claimsString = claims.Select(c => c.Type + "=" + c.Value);
+                // Gán từng thuộc tính cho RoleModel
+                var roleModel = new RoleModel()
+                {
+                    Name = item.Name,
+                    Id = item.Id,
+                    Claims = claimsString.ToArray()
+                };
+                // Thêm vào danh sách roles
+                roles.Add(roleModel);
+            }
             return Page();
         }
         

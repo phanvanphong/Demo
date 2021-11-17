@@ -1423,3 +1423,5 @@ D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Views\Shared\_
 D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Views\Checkout\Index.cshtml.g.cs
 D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\Index.cshtml.g.cs
 D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Areas\Admin\Views\Order\ShowOrderDetail.cshtml.g.cs
+D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Views\Home\RelatedProducts.cshtml.g.cs
+D:\ASPNETCore\DemoDotNet5\Demo\DemoDotNet5\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Claim\Create.cshtml.g.cs

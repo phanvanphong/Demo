@@ -55,21 +55,26 @@ namespace OA.Service
             return result;
         }
 
-        public async Task<IEnumerable<Product>> FeaturedProducts()
+        // Sản phẩm nổi bật
+        public async Task<Pager<Product>> FeaturedProducts(string search, int currentPage, int pageSize)
         {
-            var newProducts = await _productRepository.SelectData(p => p.Price < 300000, p => p.Id ,c => c.Category);
+            if (search == null) search = "";
+            var featuredProducts = await _productRepository.Paging(p => p.Name.Contains(search), currentPage, pageSize, c => c.Category);
+            return featuredProducts;
+        }
+
+        // Sản phẩm mới
+        public async Task<Pager<Product>> NewProducts(string search, int currentPage, int pageSize)
+        {
+            if (search == null) search = "";
+            var newProducts = await _productRepository.Paging(p => p.Name.Contains(search), currentPage, pageSize, c => c.Category);
             return newProducts;
         }
 
-        public async Task<IEnumerable<Product>> NewProducts()
+        // Sản phẩm liên quan
+        public async Task<Pager<Product>> RelatedProducts(int id,int currentPage, int pageSize)
         {
-            var newProducts = await _productRepository.SelectData(p => p.Price > 300000, p => p.Id ,c => c.Category);
-            return newProducts;
-        }
-
-        public async Task<IEnumerable<Product>> RelatedProducts(int id)
-        {
-            var relatedProducts = await _productRepository.SelectData(p => p.CategoryId == id, p => p.Id, c => c.Category);
+            var relatedProducts = await _productRepository.Paging(p => p.CategoryId == id,currentPage, pageSize, c => c.Category);
             return relatedProducts;
         }
     }

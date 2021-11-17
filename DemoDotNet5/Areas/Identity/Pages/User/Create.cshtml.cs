@@ -28,38 +28,47 @@ namespace DemoDotNet5.Areas.Identity.Pages.User
             _signManager = signInManager;
             _roleManager = roleManager;
         }
-        public SelectList allRoles { get; set; }
-        public ApplicationUser user { get; set; }
+        // Thuộc tính lấy danh sách tất cả role 
+        public List<string> AllRoles { get; set; }
+        // Thuộc tính lấy thông tin dữ liệu user
+        public ApplicationUser UserInfo { get; set; }
+        // Binding dữ liệu 
         [BindProperty]
         public string[] RoleNames { get; set; }
        
+
+        // Eidt User và Role 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            user = await _useManager.FindByIdAsync(id);
-            RoleNames = (await _useManager.GetRolesAsync(user)).ToArray<string>();
-            List<string> roleNames =  _roleManager.Roles.Select(r => r.Name).ToList();
-            allRoles = new SelectList(roleNames);
+            // Lấy thông tin user
+            UserInfo = await _useManager.FindByIdAsync(id);
+            // Lấy tất cả role của user và convert thành mảng string
+            RoleNames = (await _useManager.GetRolesAsync(UserInfo)).ToArray<string>();
+            // Lấy tất cả danh sách tên role 
+            AllRoles =  _roleManager.Roles.Select(r => r.Name).ToList();
             return Page();
         }
 
+
+        // Thêm role cho User
         public async Task<IActionResult> OnPostAsync(string id)
         {
             // Tìm user theo id
-            user = await _useManager.FindByIdAsync(id);
-            // Lấy tất cả những role mà user đang có và tạo thành 1 mảng
-            var oldRoleNames = (await _useManager.GetRolesAsync(user)).ToArray();
-            // Lấy tất cả những role cần phải xóa (có trong oldRoleNames mà không có trong RoleName)
+            UserInfo = await _useManager.FindByIdAsync(id);
+            // Lấy tất cả những role mà user đang có và convert thành 1 mảng
+            var oldRoleNames = (await _useManager.GetRolesAsync(UserInfo)).ToArray();
+            // Lấy tất cả những role cần phải xóa (tức là có trong oldRoleNames mà không có trong RoleNames) -> người dùng bỏ chọn
             var deleteRoles = oldRoleNames.Where(r => !RoleNames.Contains(r));
-            // Lấy tất cả những role có trong role Name mà không có ở trong oldRoleNames
-            // tức là những role cần thêm vào
+            // Lấy tất cả những role cần thêm vào (tức là có trong RoleNames mà không có trong oldRoleNames) -> người dùng kick chọn
             var addRoles = RoleNames.Where(r => !oldRoleNames.Contains(r));
             
-            var resultDelete = await _useManager.RemoveFromRolesAsync(user, deleteRoles);
-            var resultAdd = await _useManager.AddToRolesAsync(user, addRoles);
+            // Thực hiện xóa role 
+            var resultDelete = await _useManager.RemoveFromRolesAsync(UserInfo, deleteRoles);
+            // Thực hiện thêm role
+            var resultAdd = await _useManager.AddToRolesAsync(UserInfo, addRoles);
 
-            // Nạp lại danh sách các role
-            List<string> roleNames = _roleManager.Roles.Select(r => r.Name).ToList();
-            allRoles = new SelectList(roleNames);
+            // Lấy lại danh sách các role
+            AllRoles = _roleManager.Roles.Select(r => r.Name).ToList();
 
             return RedirectToPage("./Index");
         }

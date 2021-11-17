@@ -43,6 +43,17 @@
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                     </form>
+                    <hr />
+                    <p>Claims for role: <a href="../Claim/Create?roleId=@Model.role.Id" >+ Add Claim</a> </p>
+                     @if(Model.Claims.Count > 0)
+                    {
+                         <ul>
+                             @foreach(var claim in Model.Claims)
+                                {
+                                    <li>@claim.ClaimType : @claim.ClaimValue</li>
+                                }
+                         </ul>
+                    }
                 </div>
                 <!-- /.card -->
             </div>

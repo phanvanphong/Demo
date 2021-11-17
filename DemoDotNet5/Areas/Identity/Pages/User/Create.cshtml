@@ -1,6 +1,8 @@
 ﻿@page
 @model DemoDotNet5.Areas.Identity.Pages.User.CreateModel
 @{
+
+    var allRoles = new SelectList(Model.AllRoles);
 }
 
 <div class="content-header">
@@ -24,7 +26,7 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Create for: @Model.user.UserName </h3>
+                        <h3 class="card-title">Create for: @Model.UserInfo.UserName </h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -34,7 +36,7 @@
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group">
                                 <label for="email">Role Name:</label>
-                                @Html.ListBoxFor(m => m.RoleNames, Model.allRoles, new
+                                @Html.ListBoxFor(m => m.RoleNames, allRoles, new
                                 {
                                        id = "id-select-roles",
                                        @class = "form-control"

@@ -1,5 +1,5 @@
 ﻿@{ 
-    var categories = ViewBag.categories;
+    var categories = ViewBag.categoriesViewModel;
 }
 
 <!doctype html>
@@ -48,9 +48,7 @@
                             <ul>
                                 @foreach (var item in categories)
                                 {
-                                    <li class="has-sub">
-                                        <a asp-controller="Home" asp-action="RelatedProduct" asp-route-id="@item.Id"><i class="fa fa-caret-right"></i>@item.Name</a>
-                                    </li>
+                                  <a class="has-sub" asp-controller="Home" asp-action="RelatedProducts" asp-route-id="@item.Id"><li><i class="fa fa-caret-right"></i>&nbsp;&nbsp;@item.Name</li></a>
                                 }
                             </ul>
                         </div>

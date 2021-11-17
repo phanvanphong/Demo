@@ -1,18 +1,24 @@
 ﻿@*Thiết lập đường dẫn hiển thị trên URL*@
 @page
 @model LoginModel
+@{ 
+    string message = ViewData["message"] as string;
 
+}
 
 <header>Login Form</header>
 <form id="account" method="post">
+    @if (message != null) { 
+        <p style="color:#E1306C;font-size:13px;font-family:'Poppins',sans-serif">@message</p>
+    };
     <div class="field">
         <span class="fa fa-user"></span>
-        <input asp-for="Input.Email" placeholder="Enter Username" />
+        <input asp-for="Input.Email" placeholder="Enter Username" required /><br />
         <span asp-validation-for="Input.Email" class="text-danger"></span>
     </div>
     <div class="field space">
         <span class="fa fa-lock"></span>
-        <input asp-for="Input.Password" placeholder="Enter Password" />
+        <input asp-for="Input.Password" placeholder="Enter Password" required /><br />
         <span asp-validation-for="Input.Password" class="text-danger"></span>
     </div>
     <div class="pass">

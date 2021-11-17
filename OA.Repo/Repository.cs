@@ -114,23 +114,6 @@ namespace OA.Repo
             return new Pager<T>(items, totalItems, currentPage, pageSize);
         }
 
-        public async Task<IEnumerable<T>> SelectData(Expression<Func<T, bool>> condition, Expression<Func<T, object>> orderby , params Expression<Func<T, object>>[] includes)
-        {
-            // Kiểu params có thể nhận giá trị null , 1 or nhiều (danh sách)
-            // Example: var query = context.Set<T>.AsQueryable
-            // Phương thức AsQueryable() nhằm tạo câu truy vấn chứ chưa thực hiện truy vấn
-            var query = entities.AsQueryable();
-            // Duyệt từng phần tử của mảng includes
-            foreach (Expression<Func<T, object>> include in includes)
-            {
-                query = query.Include(include);
-            }
-            // Thêm điều kiện
-            var data = query.Where(condition).OrderByDescending(orderby);
-            var items = await data.ToListAsync();
-            return items;
-        }
-
         public async Task<int> Count()
         {
             return await entities.CountAsync();
