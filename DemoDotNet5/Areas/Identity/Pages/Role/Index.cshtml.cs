@@ -41,7 +41,7 @@ namespace DemoDotNet5.Areas.Identity.Pages.Role
                 // Lấy claim của từng role
                 var claims = await _roleManager.GetClaimsAsync(item);
                 // Trả về mảng gồm các chuỗi tên claim và giá trị của claim
-                var claimsString = claims.Select(c => c.Type + "=" + c.Value);
+                var claimsString = claims.Select(c => c.Type + ":" + c.Value);
                 // Gán từng thuộc tính cho RoleModel
                 var roleModel = new RoleModel()
                 {

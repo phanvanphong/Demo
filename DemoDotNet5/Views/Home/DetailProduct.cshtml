@@ -1,11 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Http
 
 @{
-    ViewData["Title"] = "DetailsProduct";
+    ViewData["Title"] = "Detail";
     Layout = "~/Views/Shared/_Layout1.cshtml";
     var detailProduct = ViewBag.detailProductViewModel;
     var relatedProducts = ViewBag.relatedProductsViewModel;
     var customerId = Context.Session.GetInt32("customerId");
+
 }
 
 <div class="col-lg-12 col-md-12">
@@ -25,42 +26,7 @@
                             </div>
                         </div>
                     </div>
-                    @*<div class="tab-pane fade" id="p_tab2" role="tabpanel">
-                            <div class="modal_img">
-                                <a href="#"><img src="~/site/assets\img\product\productbig1.jpg" alt=""></a>
-                                <div class="img_icone">
-                                    <img src="~/site/assets\img\cart\span-new.png" alt="">
-                                </div>
-                                <div class="view_img">
-                                    <a class="large_view" href="assets\img\product\productbig1.jpg"><i class="fa fa-search-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="p_tab3" role="tabpanel">
-                            <div class="modal_img">
-                                <a href="#"><img src="~/site/assets\img\product\productbig2.jpg" alt=""></a>
-                                <div class="img_icone">
-                                    <img src="~/site/assets\img\cart\span-new.png" alt="">
-                                </div>
-                                <div class="view_img">
-                                    <a class="large_view" href="~site/assets\img\product\productbig2.jpg"> <i class="fa fa-search-plus"></i></a>
-                                </div>
-                            </div>
-                        </div>*@
                 </div>
-                @*<div class="product_tab_button">
-                        <ul class="nav" role="tablist">
-                            <li>
-                                <a class="active" data-toggle="tab" href="#p_tab1" role="tab" aria-controls="p_tab1" aria-selected="false"><img src="~/site/assets\img\cart\cart.jpg" alt=""></a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#p_tab2" role="tab" aria-controls="p_tab2" aria-selected="false"><img src="~/site/assets\img\cart\cart2.jpg" alt=""></a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#p_tab3" role="tab" aria-controls="p_tab3" aria-selected="false"><img src="~/site/assets\img\cart\cart4.jpg" alt=""></a>
-                            </li>
-                        </ul>
-                    </div>*@
             </div>
         </div>
         <div class="col-lg-6 col-md-6">
@@ -96,7 +62,7 @@
                     }
                     else
                     {
-                        <a asp-controller="Customer" asp-action="LoginCustomer"><i class="fa fa-shopping-cart"></i> Login to buy</a>
+                        <a asp-controller="Account" asp-action="LoginOrRegister"><i class="fa fa-shopping-cart"></i> Login to buy</a>
                     }
                     @*<a href="#" title="add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>*@
                 </div>

@@ -18,8 +18,9 @@ using System.Threading.Tasks;
 namespace DemoDotNet5.Areas.Admin.Controllers
 {   
     [Area("Admin")]
-    [Authorize(Policy = "ManagerStore")]
+    [Authorize(Policy = "ManagerStore")] 
     // Có thể khai báo Route ở Controller kết hợp với Phương thức
+
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
@@ -39,6 +40,7 @@ namespace DemoDotNet5.Areas.Admin.Controllers
             _memoryCache = memoryCache;
         }
 
+        [Route("/Admin/Category")]
         [HttpGet]
         public async Task<IActionResult> Index(string search, int currentPage, int pageSize)
         {
@@ -117,16 +119,18 @@ namespace DemoDotNet5.Areas.Admin.Controllers
 
         }
 
-
+        [Route("/Admin/Category/Create")]
         public IActionResult Create()
         {
             CategoryViewModel categoryViewModel = new CategoryViewModel();
             return View(categoryViewModel);
         }
 
+        [Authorize(Policy = "CategoryCreate")]
+        [Route("/Admin/Category/CreatePost")]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<IActionResult> Create(CategoryViewModel obj)
+        public async Task<IActionResult> CreatePost(CategoryViewModel obj)
         {
             try
             {
@@ -139,6 +143,7 @@ namespace DemoDotNet5.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [Route("/Admin/Category/Edit/{id:int}")]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -147,6 +152,7 @@ namespace DemoDotNet5.Areas.Admin.Controllers
             return View(categoryViewModel);
         }
 
+        [Route("/Admin/Category/EditPost")]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<IActionResult> EditPost(CategoryViewModel obj)
@@ -155,6 +161,7 @@ namespace DemoDotNet5.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [Route("/Admin/Category/Delete/{id:int}")]
         // Sử dụng serilog
         [HttpGet]
         public async Task<IActionResult> Delete(int id)

@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http;
 @{
-    ViewData["Title"] = "RelatedProducts";
+    ViewData["Title"] = "Related";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var relatedProductsViewModel = ViewBag.relatedProductsViewModel;
     var customerId = Context.Session.GetInt32("customerId");
@@ -64,7 +64,7 @@
                                     }
                                     else
                                     {
-                                        <a asp-controller="Customer" asp-action="LoginCustomer"> <i class="fa fa-shopping-cart"></i> Login to buy</a>
+                                        <a asp-controller="Account" asp-action="LoginOrRegister"> <i class="fa fa-shopping-cart"></i> Login to buy</a>
                                     }
                                 </div>
                             </div>
@@ -92,9 +92,9 @@
             <form action="#">
                 <label for="page_select">show</label>
                 <select id="page_select">
-                    <option value="1">9</option>
+                    <option value="1">5</option>
                     <option value="2">10</option>
-                    <option value="3">11</option>
+                    <option value="3">15</option>
                 </select>
                 <span>Products by page</span>
             </form>

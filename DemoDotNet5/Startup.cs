@@ -80,7 +80,7 @@ namespace DemoDotNet5
             services.AddControllersWithViews();
 
 
-            //// Setting JWT Token
+            ////Setting JWT Token
             //services.AddAuthentication(options =>
             //{
             //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -91,17 +91,17 @@ namespace DemoDotNet5
             //    {
             //        options.TokenValidationParameters = new TokenValidationParameters
             //        {
-            //            // Validate Token
-            //            // Nhà cung cấp
+            //             Validate Token
+            //             Nhà cung cấp
             //            ValidateIssuer = true,
-            //            // Đối tượng được cấp
+            //             Đối tượng được cấp
             //            ValidateAudience = true,
-            //            // Thời gian sống
+            //             Thời gian sống
             //            ValidateLifetime = true,
-            //            // Nhà cung cấp và đối tượng cấu hình ở appsettings.json
+            //             Nhà cung cấp và đối tượng cấu hình ở appsettings.json
             //            ValidIssuer = Configuration["JwtIssuer"],
             //            ValidAudience = Configuration["JwtAudience"],
-            //            // Cấu hình sinh Token
+            //             Cấu hình sinh Token
             //            ValidateIssuerSigningKey = true,
             //            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSecurityKey"]))
             //        };
@@ -129,7 +129,19 @@ namespace DemoDotNet5
                 {
                     policyBuilder.RequireAuthenticatedUser();
                     policyBuilder.RequireRole("Administrator", "||", "ManagerStore");
+
                 });
+
+
+
+
+                //// Cấu hình sử dụng Claim cho Category
+                //options.AddPolicy("CategoryCreate", policyBuilder =>
+                //{
+                //    // Được phép thêm danh mục
+                //    policyBuilder.RequireClaim("Category", "Create");
+                //});
+              
 
             });
 

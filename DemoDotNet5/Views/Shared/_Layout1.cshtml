@@ -1,5 +1,6 @@
 ﻿@{
     var categories = ViewBag.categories;
+    var title = ViewData["Title"];
 }
 
 <!doctype html>
@@ -25,22 +26,37 @@
     <!-- View Header -->
     <partial name="_Header" />
 
-    <div class="container">
-                <main role="main" class="pb-3">
-                    <!--pos home section-->
-                    <div class=" pos_home_section">
-                        <div class="row pos_home">
-
-
-                            @RenderBody()
-
-
-                        </div>
-                    </div>
-                </main>
+    <!-- BreadCrumbs-->
+    <div class="breadcrumbs_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li>Home</li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>@title</li>
+                    </ul>
+                </div>
             </div>
         </div>
-      </div>
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            <!--pos home section-->
+            <div class=" pos_home_section">
+                <div class="row pos_home">
+
+
+                    @RenderBody()
+
+
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+    </div>
     </div>
 
     <footer class="border-top footer text-muted">

@@ -19,6 +19,7 @@ namespace OA.Service
         public Task<Pager<Product>> FeaturedProducts(string search, int currentPage, int pageSize);
         public Task<Pager<Product>> NewProducts(string search, int currentPage, int pageSize);
         public Task<Pager<Product>> RelatedProducts(int id, int currentPage, int pageSize);
+        public Task<Pager<Product>> ShopProducts(string search, int currentPage, int pageSize);
 
     }
 }

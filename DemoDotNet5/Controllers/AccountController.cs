@@ -14,17 +14,17 @@ using System.Threading.Tasks;
 
 namespace DemoDotNet5.Controllers
 {
-    public class CustomerController : Controller
+    public class AccountController : Controller
     {
         private readonly ICustomerService _customerService;
         private readonly IConfiguration _configuration;
-        public CustomerController(ICustomerService customerService, IConfiguration configuration)
+        public AccountController(ICustomerService customerService, IConfiguration configuration)
         {
             _customerService = customerService;
             _configuration = configuration;
 
         }
-        public IActionResult LoginCustomer()
+        public IActionResult LoginOrRegister()
         {
             CustomerViewModel customerViewModel = new CustomerViewModel();
             return View(customerViewModel);
@@ -63,13 +63,7 @@ namespace DemoDotNet5.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            return RedirectToAction("LoginCustomer", "Customer");
-        }
-
-        public IActionResult RegisterCustomer()
-        {
-            CustomerViewModel customerViewModel = new CustomerViewModel();
-            return View(customerViewModel);
+            return RedirectToAction("LoginOrRegister", "Account");
         }
 
         public IActionResult LogoutCustomer()

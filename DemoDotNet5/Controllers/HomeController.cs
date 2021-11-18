@@ -95,6 +95,21 @@ namespace DemoDotNet5.Controllers
         }
 
 
+        // Trang sản phẩm
+        public async Task<IActionResult> ShopProducts(string search, int currentPage, int pageSize)
+        {
+            var categories = _categoryService.GetList();
+            var categoriesViewModel = _mapper.Map<List<CategoryViewModel>>(categories);
+            ViewBag.categoriesViewModel = categoriesViewModel;
+
+            var dataShopProducts = await _productService.ShopProducts(search, currentPage, pageSize);
+            var shopProducts = dataShopProducts.Items;
+            var shopProductsViewModel = _mapper.Map<List<ProductViewModel>>(shopProducts);
+            ViewBag.shopProductsViewModel = shopProductsViewModel;
+            return View();
+        }
+
+
 
         public IActionResult Privacy()
         {

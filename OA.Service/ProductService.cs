@@ -77,6 +77,15 @@ namespace OA.Service
             var relatedProducts = await _productRepository.Paging(p => p.CategoryId == id,currentPage, pageSize, c => c.Category);
             return relatedProducts;
         }
+
+        // Sản phẩm
+        public async Task<Pager<Product>> ShopProducts(string search, int currentPage, int pageSize)
+        {
+            if (search == null) search = "";
+            var shopProducts = await _productRepository.Paging(p => p.Name.Contains(search), currentPage, pageSize, c => c.Category);
+            return shopProducts;
+        }
+
     }
 }
 
