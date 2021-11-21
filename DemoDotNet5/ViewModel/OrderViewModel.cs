@@ -13,6 +13,6 @@ namespace DemoDotNet5.ViewModel
         public string Address { get; set; }
         public int Status { get; set; }
         public int CustomerId { get; set; }
-        public string CustomerName { get; set; }
+        public string CustomerFullname { get; set; }
     }
 }

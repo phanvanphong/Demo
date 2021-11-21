@@ -1,9 +1,23 @@
-﻿@using Microsoft.AspNetCore.Http;
-@{ 
+﻿@using DemoDotNet5.ViewModel;
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+
+
+@{
+    var cart = Context.Session.GetString("cart");
+    int totalItems = 0;
+    if (cart != null)
+    {
+        List<CartItemViewModel> dataCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(cart);
+        totalItems = dataCart.Sum(c => c.Quantity);
+    }
     var username = Context.Session.GetString("username");
 }
-  <!-- Add your site or application content here -->
-    <!--pos page start-->
+
+
+
+<!-- Add your site or application content here -->
+<!--pos page start-->
 <div class="pos_page">
     <div class="container">
         <!--pos page inner-->
@@ -47,7 +61,7 @@
                                     }
                                     else
                                     {
-                                        <li><a onclick="return confirm('Want to logout?')" asp-controller="Customer" asp-action="LogoutCustomer" title="Logout">Hello @username</a></li>
+                                        <li><a onclick="return confirm('Want to logout?')" asp-controller="Acccount" asp-action="LogoutCustomer" title="Logout">Hello @username</a></li>
                                     }
                                 </ul>
                             </div>
@@ -74,51 +88,9 @@
                                     </form>
                                 </div>
                                 <div class="shopping_cart">
-                                    <a href="#"><i class="fa fa-shopping-cart"></i> 2Items - $209.44 <i class="fa fa-angle-down"></i></a>
-
-                                    <!--mini cart-->
-                                    <div class="mini_cart">
-                                        <div class="cart_item">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="~/site/assets\img\cart\cart.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart_info">
-                                                <a href="#">lorem ipsum dolor</a>
-                                                <span class="cart_price">$115.00</span>
-                                                <span class="quantity">Qty: 1</span>
-                                            </div>
-                                            <div class="cart_remove">
-                                                <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="cart_item">
-                                            <div class="cart_img">
-                                                <a href="#"><img src="~/site/assets\img\cart\cart2.jpg" alt=""></a>
-                                            </div>
-                                            <div class="cart_info">
-                                                <a href="#">Quisque ornare dui</a>
-                                                <span class="cart_price">$105.00</span>
-                                                <span class="quantity">Qty: 1</span>
-                                            </div>
-                                            <div class="cart_remove">
-                                                <a title="Remove this item" href="#"><i class="fa fa-times-circle"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="shipping_price">
-                                            <span> Shipping </span>
-                                            <span>  $7.00  </span>
-                                        </div>
-                                        <div class="total_price">
-                                            <span> total </span>
-                                            <span class="prices">  $227.00  </span>
-                                        </div>
-                                        <div class="cart_button">
-                                            <a href="checkout.html"> Check out</a>
-                                        </div>
-                                    </div>
-                                    <!--mini cart end-->
+                                    <a asp-controller="Cart" asp-action="Index"><i class="fa fa-shopping-cart"></i>Items:<span id="cart-count">@totalItems</span> <i class="fa fa-angle-down"></i>
+                                    </a>
                                 </div>
-
                             </div>
                         </div>
                     </div>

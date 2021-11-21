@@ -20,9 +20,9 @@
 
         <div class="list_button">
             <ul class="nav" role="tablist">
-                <li>
+                @*<li>
                     <a class="active" data-toggle="tab" href="#large" role="tab" aria-controls="large" aria-selected="true"><i class="fa fa-th-large"></i></a>
-                </li>
+                </li>*@
             </ul>
         </div>
         <div class="page_amount">
@@ -62,14 +62,10 @@
                                         <img src="assets\img\cart\span-new.png" alt="">
                                     </div>
                                     <div class="product_action">
-                                        @if (customerId != null)
-                                        {
-                                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@item.Id"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        }
-                                        else
-                                        {
-                                            <a asp-controller="Account" asp-action="LoginOrRegister"> <i class="fa fa-shopping-cart"></i> Login to buy</a>
-                                        }
+                                        @*<a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@item.Id"> <i class="fa fa-shopping-cart"></i> Add to cart</a>*@
+
+                                        @*Xử lý giỏ hàng với Ajax*@
+                                        <a data-id="@item.Id" class="add-to-cart text-white"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                     </div>
                                 </div>
                                 <div class="product_content">
@@ -93,14 +89,14 @@
     <!--pagination style start-->
     <div class="pagination_style">
         <div class="item_page">
-            <form action="#">
+            <form action="" method="get">
                 <label for="page_select">show</label>
-                <select id="page_select">
+                <select name="pageSize" id="page_select">
                     <option value="1">5</option>
                     <option value="2">10</option>
                     <option value="3">15</option>
                 </select>
-                <span>Products by page</span>
+                <span><button type="submit" class="btn btn-danger">OK</button></span>
             </form>
         </div>
         <div class="page_number">
@@ -116,3 +112,40 @@
     <!--pagination style end-->
 </div>
 
+
+<!-- Thêm vào giỏ hàng bằng Ajax -->
+@section scripts{
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            $(".add-to-cart").click(function () {
+                $.ajax({
+                    url: "../../Cart/AddToCart",
+                    data: {
+                        id: $(this).data("id"),
+                        quantity: 1
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        Swal.fire({
+                            // position: 'top-end',
+                            icon: 'success',
+                            title: 'Add to cart success fully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        $("#cart-count").html(data.totalItems);
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Add to cart failed',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                });
+            });
+        });
+    </script>
+}

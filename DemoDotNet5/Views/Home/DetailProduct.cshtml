@@ -55,15 +55,9 @@
                         <label>quantity</label>
                         <input min="0" max="100" value="1" type="number">
                     </form>
-                    <!--Check đã đăng nhập mới cho mua hàng -->
-                    @if (customerId != null)
-                    {
-                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@detailProduct.Id"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                    }
-                    else
-                    {
-                        <a asp-controller="Account" asp-action="LoginOrRegister"><i class="fa fa-shopping-cart"></i> Login to buy</a>
-                    }
+
+                    @*Xử lý giỏ hàng với Ajax*@
+                    <a data-id="@detailProduct.Id" class="add-to-cart text-white"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                     @*<a href="#" title="add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>*@
                 </div>
                 <div class="product_d_size mb-20">
@@ -209,36 +203,72 @@
             <h3>Related Products</h3>
         </div>
         <div class="row">
-            <div class="product_active owl-carousel">
-                @foreach (var item in relatedProducts)
-                {
-                    <div class="col-lg-3">
-                        <div class="single_product">
-                            <div class="product_thumb">
-                                <a asp-controller="Home" asp-action="DetailProduct" asp-route-Id="@item.Id"><img src="~/images/@item.ImageName" alt=""></a>
-                                <div class="img_icone">
-                                    <img src="~/site/assets\img\cart\span-new.png" alt="">
-                                </div>
-                                <div class="product_action">
-                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                </div>
+            @foreach (var item in relatedProducts)
+            {
+                <div class="col-lg-3">
+                    <div class="single_product">
+                        <div class="product_thumb">
+                            <a asp-controller="Home" asp-action="DetailProduct" asp-route-Id="@item.Id"><img src="~/images/@item.ImageName" alt=""></a>
+                            <div class="img_icone">
+                                <img src="~/site/assets\img\cart\span-new.png" alt="">
                             </div>
-                            <div class="product_content">
-                                <span class="product_price">@item.Price <sup>VNĐ</sup></span>
-                                <h3 class="product_title"><a href="single-product.html">@item.Name</a></h3>
-                            </div>
-                            <div class="product_info">
-                                <ul>
-                                    <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
-                                    <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
-                                </ul>
+                            <div class="product_action">
+                                @*Xử lý giỏ hàng với Ajax*@
+                                <a data-id="@item.Id" class="add-to-cart text-white"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                             </div>
                         </div>
+                        <div class="product_content">
+                            <span class="product_price">@item.Price <sup>VNĐ</sup></span>
+                            <h3 class="product_title"><a href="single-product.html">@item.Name</a></h3>
+                        </div>
+                        <div class="product_info">
+                            <ul>
+                                <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>
+                            </ul>
+                        </div>
                     </div>
-                }
-            </div>
+                </div>
+            }
         </div>
     </div>
     <!--Related Products area end-->
 
 </div>
+
+<!-- Thêm vào giỏ hàng bằng Ajax -->
+@section scripts{
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            $(".add-to-cart").click(function () {
+                $.ajax({
+                    url: "../../Cart/AddToCart",
+                    data: {
+                        id: $(this).data("id"),
+                        quantity: 1
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        Swal.fire({
+                            // position: 'top-end',
+                            icon: 'success',
+                            title: 'Add to cart success fully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        $("#cart-count").html(data.totalItems);
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Add to cart failed',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                });
+            });
+        });
+    </script>
+}

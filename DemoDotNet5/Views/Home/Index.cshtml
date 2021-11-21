@@ -2,7 +2,6 @@
 @{
     var featuredProducts = ViewBag.featuredProductsViewModel;
     var newProducts = ViewBag.newProductsViewModel;
-    var customerId = Context.Session.GetInt32("customerId");
 }
 <div class="col-lg-9 col-md-12">
     <!--banner slider start-->
@@ -55,14 +54,11 @@
                                     <img src="~/site/assets\img\cart\span-new.png" alt="">
                                 </div>
                                 <div class="product_action">
-                                    @if (customerId != null)
-                                    {
-                                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@item.Id"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                    }
-                                    else
-                                    {
-                                        <a asp-controller="Customer" asp-action="LoginCustomer"> <i class="fa fa-shopping-cart"></i> Login to buy</a>
-                                    }
+                                        
+                                    @*<a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@item.Id"> <i class="fa fa-shopping-cart"></i> Add to cart</a>*@
+                                       
+                                    @*Xử lý giỏ hàng với Ajax*@
+                                    <a data-id="@item.Id" class="add-to-cart text-white"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                             </div>
                             <div class="product_content">
@@ -100,7 +96,10 @@
                                     <img src="~/site/assets\img\cart\span-hot.png" alt="">
                                 </div>
                                 <div class="product_action">
-                                    <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                    @*<a asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@item.Id"> <i class="fa fa-shopping-cart"></i> Add to cart</a>*@
+
+                                    @*Xử lý giỏ hàng với Ajax*@
+                                    <a data-id="@item.Id" class="add-to-cart text-white"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                             </div>
                             <div class="product_content">
@@ -188,3 +187,39 @@
 
 
 
+<!-- Thêm vào giỏ hàng bằng Ajax -->
+@section scripts{ 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function () {
+            $(".add-to-cart").click(function () {
+                $.ajax({
+                    url: "Cart/AddToCart",
+                    data: {
+                        id: $(this).data("id"),
+                        quantity: 1
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        Swal.fire({
+                            // position: 'top-end',
+                            icon: 'success',
+                            title: 'Add to cart success fully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        $("#cart-count").html(data.totalItems);
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Add to cart failed',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                });
+            });
+        });
+    </script>
+}

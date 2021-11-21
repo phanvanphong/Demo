@@ -3828,6 +3828,12 @@
 /*modal css end*/
 
 
-
+#cart-count{
+	color: white;
+	font-size: 17px;
+	padding: 5px;
+	background-color: #00BBA6;
+	border-radius:20%;
+}
 
 

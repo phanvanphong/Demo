@@ -42,7 +42,9 @@ namespace DemoDotNet5.Controllers
         }
 
 
-        public async Task<IActionResult> AddToCart(int id)
+
+
+        public async Task<IActionResult> AddToCart(int id, int quantity = 1)
         {
             // Tạo biến cart để lấy session cart hiện có
             var cart = HttpContext.Session.GetString("cart");
@@ -56,7 +58,7 @@ namespace DemoDotNet5.Controllers
                     new CartItemViewModel
                     {
                         Product = productViewModel,
-                        Quantity = 1
+                        Quantity = quantity
                     }
                 };
                 // JsonConvert.SerializeObject : chuyển đổi đối tượng thành chuỗi JSON
@@ -94,12 +96,25 @@ namespace DemoDotNet5.Controllers
                 HttpContext.Session.SetString("cart", JsonConvert.SerializeObject(dataCart));
             }
 
+
+            // Đếm lại số lượng trong cart sau đó trả về Json
+            var getCart = HttpContext.Session.GetString("cart");
+            List<CartItemViewModel> getListCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(getCart);
+            if(getListCart != null)
+            {
+                return Json(new
+                {
+                    totalItems = getListCart.Sum(c => c.Quantity)
+                });
+            } 
+            
             return RedirectToAction("Index", "Cart");
         }
 
 
 
-        public IActionResult DeleteCart(int id)
+
+        public async Task<IActionResult> DeleteCart(int id)
         {
             var cart = HttpContext.Session.GetString("cart");
             if (cart != null)
@@ -114,12 +129,34 @@ namespace DemoDotNet5.Controllers
                 }
                 HttpContext.Session.SetString("cart", JsonConvert.SerializeObject(dataCart));
             }
+
+            // Đếm lại số lượng trong cart sau đó trả về Json
+            var getCart = HttpContext.Session.GetString("cart");
+            List<CartItemViewModel> getListCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(getCart);
+            var product = await _productService.GetId(id);
+
+            // Tính lại tổng tiền giỏ hàng
+            var subTotal = getListCart.Sum(c => c.Quantity * c.Product.Price);
+
+            if (getListCart != null)
+            {
+                return Json(new
+                {
+                    totalItems = getListCart.Sum(c => c.Quantity),
+                    // Tổng tiền giỏ hàng
+                    subTotal = String.Format("{0:n0}", subTotal)
+                });
+            }
+
             return RedirectToAction("Index", "Cart");
         }
 
 
-        [HttpPost]
-        public IActionResult UpdateCart(int productId, int quantity)
+
+
+
+
+        public async Task<IActionResult> UpdateCart(int productId, int quantity)
         {
             var cart = HttpContext.Session.GetString("cart");
             if(cart != null)
@@ -136,6 +173,26 @@ namespace DemoDotNet5.Controllers
                     }
                     HttpContext.Session.SetString("cart", JsonConvert.SerializeObject(dataCart));
                 }
+            }
+
+            // Đếm lại số lượng trong cart sau đó trả về Json
+            var getCart = HttpContext.Session.GetString("cart");
+            List<CartItemViewModel> getListCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(getCart);
+            var product = await _productService.GetId(productId);
+
+            // Tính lại tổng tiền giỏ hàng
+            var subTotal = getListCart.Sum(c => c.Quantity * c.Product.Price);
+
+            if (getListCart != null)
+            {
+                return Json(new
+                {
+                    totalItems = getListCart.Sum(c => c.Quantity),
+                    // Tổng tiền của 1 item cart
+                    total = String.Format("{0:n0}", product.Price * quantity),
+                    // Tổng tiền giỏ hàng
+                    subTotal = String.Format("{0:n0}", subTotal)
+                });
             }
             return RedirectToAction("Index", "Cart");
         }
